@@ -1,38 +1,175 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  /* background-color: #1a1a1c; */
+  /* background-color: rgb(32, 33, 36); */
+  background-color: rgb(34, 41, 48);
+  color: rgb(228, 228, 228);
+  font-weight: 500;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mapped-coins {
+  animation: fadein 0.1s;
+}
+
+.app-container {
+  width: 100%;
+}
+
+.coin-app {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* margin-top: 64px; */
+  color: #fff;
+}
+
+.coin-search {
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 100%;
+  height: 130px;
+  background-color: rgb(24, 25, 29);
 }
 
-.App-link {
-  color: #61dafb;
+.coin-text {
+  margin-bottom: 32px;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.coin-input {
+  padding-left: 16px;
+  width: 1000px;
+  height: 60px;
+  /* border-radius: 2rem; */
+  border: none;
+  border-bottom: solid 2px rgb(40, 42, 46);
+  /* background-image: linear-gradient(
+    -225deg,
+    #ac32e4 0%,
+    #7918f2 48%,
+    #4801ff 100%
+  ); */
+  background-color: rgb(24, 25, 29);
+  font-size: 3rem;
+  font-weight: 400;
+  color: #e2e2e2;
+}
+
+.coin-input::placeholder {
+  color: rgb(40, 42, 46);
+}
+
+.coin-input:focus {
+  outline: 0;
+}
+
+/* ----------Coin data labels----------- */
+
+.coin-data-label-cointainer {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.coin-data-label-wrapper > p {
+  font-size: 0.8rem;
+}
+
+.coin-data-label-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-items: start;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid rgb(60, 68, 82);
+  width: 1000px;
+  font-size: 0.9rem;
+}
+
+.coin-rank-label {
+  width: 80px;
+  text-align: center;
+}
+
+.coin-name-label {
+  min-width: 260px;
+}
+
+.data-label-container {
+  display: flex;
+  text-align: right;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.data-label-container > p {
+  font-size: 0.8rem;
+}
+
+.coin-price-label {
+  width: 78px;
+}
+
+.volume-label {
+  width: 171px;
+  padding-right: 20px;
+}
+
+.twoFour-hours-price-change-label {
+  width: 116px;
+}
+
+.market-cap-label {
+  width: 170px;
+}
+
+/* -------Page buttons-------- */
+
+.pageButtonsContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 2rem 0;
+}
+
+.pageButtonsWrapper {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.pageButtonsWrapper > button {
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+.pageButtonsWrapper > button:hover {
+  cursor: pointer;
+}
+
+.pageNumber {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px;
 }
