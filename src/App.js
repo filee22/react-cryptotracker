@@ -89,6 +89,7 @@ function App() {
               <p className='coin-name-label'>Name</p>
               <div className='data-label-container'>
                 <p className='coin-price-label'>Price</p>
+                <p className='coin-pricechange-label'>Change</p>
                 <p className='twoFour-hours-price-change-label'>24h %</p>
                 <p className='market-cap-label'>Market Cap</p>
                 <p className='volume-label'>Volume (24h)</p>
