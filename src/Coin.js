@@ -36,6 +36,21 @@ function Coin({
           maximumFractionDigits: 2,
         })
 
+  const priceChange = () => {
+    const priceCalc = (price * pricePerc24h) / (pricePerc24h + 100)
+    return priceCalc >= 1 || priceCalc <= -1
+      ? priceCalc.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })
+      : priceCalc.toLocaleString(undefined, {
+          minimumFractionDigits: 4,
+          maximumFractionDigits: 4,
+        })
+  }
+
+  console.log(priceChange)
+
   return (
     <div className='coin-container'>
       <div className='coin-row' onClick={openPopup}>
@@ -47,13 +62,40 @@ function Coin({
         </div>
         <div className='coin-data'>
           <p className='coin-price'>${currentPrice}</p>
+          <p className='coin-pricechange'>
+            {priceChange().charAt(0) == '-' ? (
+              <span className='red'>-${priceChange().substring(1)}</span>
+            ) : (
+              <span className='green'>+${priceChange()}</span>
+            )}
+          </p>
           {pricePerc24h < 0 ? (
-            <p className='coin-percent red'>
-              {pricePerc24h === null ? 'unavailable' : pricePerc24h.toFixed(2)}%
+            <p className='coin-percent'>
+              <span className='coin-percent-container red-cont'>
+                {pricePerc24h === null ? (
+                  'unavailable'
+                ) : (
+                  <span className='red-cont'>
+                    <i class='fas fa-arrow-down' id='coin-arrow-down'></i>{' '}
+                    {pricePerc24h.toFixed(2).substring(1)}
+                  </span>
+                )}
+                %
+              </span>
             </p>
           ) : (
-            <p className='coin-percent green'>
-              {pricePerc24h === null ? 'unavailable' : pricePerc24h.toFixed(2)}%
+            <p className='coin-percent'>
+              <span className='coin-percent-container green-cont'>
+                {pricePerc24h === null ? (
+                  'unavailable'
+                ) : (
+                  <span className='green-cont'>
+                    <i class='fas fa-arrow-up' id='coin-arrow-up'></i>{' '}
+                    {pricePerc24h.toFixed(2)}
+                  </span>
+                )}
+                %
+              </span>
             </p>
           )}
           <p className='coin-marketcap'>${marketcap.toLocaleString()}</p>
