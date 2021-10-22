@@ -1,3 +1,16 @@
+:root {
+  --bc-primary: rgb(32, 33, 36);
+  --bc-secondary: rgb(39, 40, 43);
+
+  --tc-red: rgb(242, 139, 130);
+  --tc-green: rgb(129, 201, 149);
+
+  --tc-primary: rgb(221, 222, 225);
+  --tc-secondary: rgb(154, 160, 166);
+
+  --border: rgb(60, 64, 67);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,7 +22,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,11 +32,12 @@
 .popup-wrapper {
   position: relative;
   padding: 32px;
-  background: rgb(22, 29, 37);
+  background: var(--bc-primary);
   display: flex;
   width: 100vw;
   max-width: 1000px;
-  height: 85vh;
+  max-height: 590px;
+  height: 590px;
   justify-content: left;
   align-items: center;
   border-radius: 1rem;
@@ -32,7 +46,7 @@
 .popup-name-chart-wrapper {
   flex-direction: column;
   padding-left: 1rem;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
   height: 535px;
   display: flex;
   align-content: space-between;
@@ -40,45 +54,48 @@
 
 .popup-img-container {
   display: flex;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
+  justify-content: space-between;
+  border-bottom: solid 1px rgb(60, 64, 67);
 }
 
 .popup-image-name-wrapper {
   display: flex;
   flex-direction: row;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
 }
 
 .popup-image {
   width: 19px;
   height: 19px;
-  background: rgb(22, 29, 37);
+  background: var(--bc-primary);
   margin-top: 5px;
   margin-right: 7px;
 }
 
 .popup-coin-name {
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.4rem;
+  padding-right: 0.5rem;
   font-size: 1.5rem;
   font-weight: 400;
-  background-color: rgb(22, 29, 37);
-  color: rgb(185, 185, 185);
+  background-color: var(--bc-primary);
+  color: var(--tc-primary);
 }
 
 .popup-coin-symbol {
-  background-color: rgb(50, 55, 65);
-  color: rgb(166, 176, 196);
-  padding: 2px 5px 2px 5px;
-  border-radius: 4px;
+  /* background-color: rgb(50, 55, 65); */
+  color: var(--tc-primary);
+  /* padding: 2px 5px 2px 5px; */
+  /* border-radius: 4px; */
   align-self: center;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 12px;
+  font-size: 1rem;
+  /* font-weight: 500; */
+  /* margin-bottom: 12px; */
   margin-left: 0.5rem;
 }
 
 .popup-header-details {
-  padding-top: 0.8rem;
+  padding-top: 0.6rem;
 }
 
 @keyframes fadein {
@@ -92,27 +109,24 @@
 
 .chart-wrapper {
   margin-top: 1.75rem;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
   align-self: flex-end;
   animation: fadein 0.1s;
 }
 
 .popup-price {
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
   font-weight: 400;
   font-size: 2.5rem;
-  color: rgb(228, 228, 228);
+  color: var(--tc-primary);
+  padding-top: 0.8rem;
 }
 
 .popup-currency {
   font-size: 1.2rem;
   font-weight: 300;
-  color: rgb(185, 185, 185);
-  background-color: rgb(22, 29, 37);
-}
-
-.popup-pricechange-container {
-  margin-top: 0.5rem;
+  color: var(--tc-secondary);
+  background-color: var(--bc-primary);
 }
 
 .popup-pricechange {
@@ -122,67 +136,67 @@
 }
 
 .price-positive {
-  color: rgba(8, 176, 137, 1);
+  color: var(--tc-green);
 }
 
 .inactive-button {
   border: none;
   padding: 5px 10px 5px 10px;
   margin: 0 5px 0 5px;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
   cursor: pointer;
   font-size: 1rem;
   font-weight: 400;
-  color: rgb(185, 185, 185);
+  color: var(--tc-secondary);
 }
 
 .active-button-green {
-  color: rgba(8, 176, 137, 1);
+  color: var(--tc-green);
   border: none;
-  border-bottom: solid 2px rgba(8, 176, 137, 1);
+  border-bottom: solid 2px var(--tc-green);
   padding: 5px 10px 5px 10px;
   margin: 0 5px 0 5px;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
   cursor: pointer;
   font-size: 1rem;
   font-weight: 400;
 }
 
 .active-button-red {
-  color: rgba(255, 99, 132, 1);
+  color: var(--tc-red);
   border: none;
-  border-bottom: solid 2px rgba(255, 99, 132, 1);
+  border-bottom: solid 2px var(--tc-red);
   padding: 5px 10px 5px 10px;
   margin: 0 5px 0 5px;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
   cursor: pointer;
   font-size: 1rem;
   font-weight: 400;
 }
 
 .popup-price-change {
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
   font-size: 1.1rem;
   padding-top: 5px;
 }
 
 .green-popup {
-  color: rgba(8, 176, 137, 1);
+  color: var(--tc-green);
 }
 
 .red-popup {
-  color: rgba(255, 99, 132, 1);
+  color: var(--tc-red);
 }
 
 #arrow-up {
-  color: rgba(8, 176, 137, 1);
-  background-color: rgb(22, 29, 37);
+  color: var(--tc-green);
+  background-color: var(--bc-primary);
   font-size: 1rem;
 }
 
 #arrow-down {
-  background-color: rgb(22, 29, 37);
-  color: rgba(255, 99, 132, 1);
+  background-color: var(--bc-primary);
+  color: var(--tc-red);
   font-size: 1rem;
 }
 
@@ -193,9 +207,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
   align-items: flex-end;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.7rem;
 }
 
 .popup-coin-info-container {
@@ -203,7 +217,8 @@
   height: 340px;
   display: flex;
   align-items: center;
-  background-color: rgb(25, 36, 46);
+  background-color: var(--bc-secondary);
+  /* border: solid 1px var(--border); */
   border-radius: 1rem;
   flex-direction: column;
   padding-top: 0.5rem;
@@ -219,7 +234,7 @@ span {
 .popup-coin-detail-container {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: solid 1px rgb(45, 55, 73);
+  border-bottom: solid 1px var(--border);
 }
 
 .popup-coin-detail-container:last-child {
@@ -235,7 +250,7 @@ span {
 
 .popup-coin-detail-wrapper > span {
   margin-bottom: 0.2rem;
-  color: rgb(127, 139, 167);
+  color: var(--tc-primary);
   font-weight: 500;
 }
 
@@ -245,15 +260,16 @@ span {
 
 #close-btn {
   font-size: 1.5rem;
-  color: rgb(127, 139, 167);
+  color: var(--tc-secondary);
   cursor: pointer;
-  background-color: rgb(22, 29, 37);
+  background-color: var(--bc-primary);
+  -webkit-text-stroke: 2px var(--bc-primary);
 }
 
 .loader-container {
   width: 600px;
   height: 340px;
-  background-color: rgb(25, 36, 46);
+  background-color: var(--bc-secondary);
   border-radius: 1rem;
   margin-top: 2.35rem;
   margin-bottom: 0.5rem;
@@ -276,9 +292,9 @@ span {
 .shimmer {
   width: 50%;
   height: 100%;
-  background: rgba(52, 65, 94, 0.2);
+  background: rgba(69, 70, 77, 0.2);
   transform: skewX(-20deg);
-  box-shadow: 0 0 10px 10px rgba(106, 139, 182, 0.05);
+  box-shadow: 0 0 10px 10px rgba(157, 168, 182, 0.05);
 }
 
 @keyframes loading {
