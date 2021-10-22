@@ -19,10 +19,10 @@ function CoinChart({
       var ctx = document.getElementById('myChart').getContext('2d')
 
       var gradientGreen = ctx.createLinearGradient(0, 0, 0, 300)
-      gradientGreen.addColorStop(0, 'rgba(8, 176, 137, 0.3)')
+      gradientGreen.addColorStop(0, 'rgba(129, 201, 149, 0.35)')
       gradientGreen.addColorStop(1, 'rgba(100, 100, 0, 0)')
       var gradientRed = ctx.createLinearGradient(0, 0, 0, 300)
-      gradientRed.addColorStop(0, 'rgba(255, 99, 132, 0.3)')
+      gradientRed.addColorStop(0, 'rgba(242, 139, 130, 0.35)')
       gradientRed.addColorStop(1, 'rgba(100, 100, 0, 0)')
 
       var myChart = new Chart(ctx, {
@@ -40,9 +40,7 @@ function CoinChart({
               },
               backgroundColor: percSwitch < 0 ? gradientRed : gradientGreen,
               borderColor:
-                percSwitch < 0
-                  ? 'rgba(255, 99, 132, 1)'
-                  : 'rgba(8, 176, 137, 1)',
+                percSwitch < 0 ? 'rgb(242, 139, 130)' : 'rgb(129, 201, 149)',
               borderWidth: 1,
               pointRadius: 0,
             },
@@ -78,7 +76,7 @@ function CoinChart({
             },
             y: {
               grid: {
-                color: 'rgb(32, 42, 63)',
+                color: 'rgba(53, 56, 59, 0.8)',
                 // FIX AXIS LINE COLOR TO TRANSPARENT
                 borderColor: 'rgba(0, 0, 0, 0)',
               },
