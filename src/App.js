@@ -70,26 +70,28 @@ function App() {
     <div className='app'>
       <div className='app-container'>
         <div className='coin-search'>
+          <div className='coin-search-container'>
+            <form>
+              <input
+                type='text'
+                placeholder='Search'
+                className='coin-input'
+                onChange={handleChange}
+              />
+            </form>
+          </div>
           {/* <h1 className='coin-text'>Search a currency</h1> */}
-          <form>
-            <input
-              type='text'
-              placeholder='Search'
-              className='coin-input'
-              onChange={handleChange}
-            />
-          </form>
         </div>
         <div className='coin-app'>
           <div className='coin-data-label-cointainer'>
             <div className='coin-data-label-wrapper'>
               <p className='coin-rank-label'>#</p>
-              <p className='coin-name-label'>NAME</p>
+              <p className='coin-name-label'>Name</p>
               <div className='data-label-container'>
-                <p className='coin-price-label'>PRICE</p>
-                <p className='twoFour-hours-price-change-label'>24H %</p>
-                <p className='market-cap-label'>MARKET CAP</p>
-                <p className='volume-label'>VOLUME(24H)</p>
+                <p className='coin-price-label'>Price</p>
+                <p className='twoFour-hours-price-change-label'>24h %</p>
+                <p className='market-cap-label'>Market Cap</p>
+                <p className='volume-label'>Volume (24h)</p>
               </div>
             </div>
           </div>
