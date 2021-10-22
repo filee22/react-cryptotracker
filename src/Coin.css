@@ -9,7 +9,7 @@
   justify-items: start;
   align-items: center;
   height: 70px;
-  /* border-bottom: 1px solid rgb(60, 64, 67); */
+  border-bottom: 1px solid rgb(54, 56, 59);
   width: 1000px;
 }
 
@@ -90,7 +90,7 @@
 }
 
 #coin-arrow-down {
-  color: rgb(65, 30, 30);
+  color: rgb(68, 32, 32);
   background-color: rgb(209, 123, 114);
 }
 
@@ -101,7 +101,7 @@
 
 .red-cont {
   /* color: rgb(242, 139, 130); */
-  color: rgb(65, 30, 30);
+  color: rgb(68, 32, 32);
   background-color: rgb(209, 123, 114);
   font-weight: 500;
 }
