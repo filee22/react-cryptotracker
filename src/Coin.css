@@ -8,8 +8,8 @@
   flex-direction: row;
   justify-items: start;
   align-items: center;
-  height: 80px;
-  border-bottom: 1px solid rgb(60, 68, 82);
+  height: 70px;
+  /* border-bottom: 1px solid rgb(60, 64, 67); */
   width: 1000px;
 }
 
@@ -39,6 +39,7 @@
   font-size: 16px;
   /* width: 150px; */
   padding-right: 5px;
+  color: rgb(221, 222, 225);
 }
 
 .coin-symbol {
@@ -55,6 +56,7 @@
 .coin-price {
   width: 110px;
   font-weight: 500;
+  color: rgb(221, 222, 225);
 }
 
 .coin-volume {
@@ -72,9 +74,9 @@
 
 .red {
   /* color: rgb(242, 139, 130); */
-  color: rgb(226, 30, 72);
+  color: rgb(242, 139, 130);
 }
 
 .green {
-  color: rgb(82, 194, 114);
+  color: rgb(129, 201, 149);
 }
