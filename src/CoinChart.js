@@ -77,8 +77,7 @@ function CoinChart({
             y: {
               grid: {
                 color: 'rgba(53, 56, 59, 0.8)',
-                // FIX AXIS LINE COLOR TO TRANSPARENT
-                borderColor: 'rgba(0, 0, 0, 0)',
+                borderWidth: 0,
               },
             },
           },
