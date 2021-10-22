@@ -5,9 +5,9 @@
   font-family: 'Roboto', sans-serif;
   /* background-color: #1a1a1c; */
   /* background-color: rgb(32, 33, 36); */
-  background-color: rgb(34, 41, 48);
-  color: rgb(228, 228, 228);
-  font-weight: 500;
+  background-color: rgb(32, 33, 36);
+  color: rgb(154, 160, 166);
+  font-weight: 400;
 }
 
 .app {
@@ -42,14 +42,20 @@
 }
 
 .coin-search {
-  margin-bottom: 64px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 130px;
-  background-color: rgb(24, 25, 29);
+  height: 60px;
+  background-color: rgb(32, 33, 36);
+  border-bottom: solid 1px rgb(60, 64, 67);
+}
+
+.coin-search-container {
+  width: 1000px;
+  display: flex;
 }
 
 .coin-text {
@@ -59,25 +65,25 @@
 
 .coin-input {
   padding-left: 16px;
-  width: 1000px;
-  height: 60px;
-  /* border-radius: 2rem; */
+  width: 600px;
+  height: 40px;
+  border-radius: 2rem;
   border: none;
-  border-bottom: solid 2px rgb(40, 42, 46);
+  border-bottom: solid 2px rgb(48, 54, 61);
   /* background-image: linear-gradient(
     -225deg,
     #ac32e4 0%,
     #7918f2 48%,
     #4801ff 100%
   ); */
-  background-color: rgb(24, 25, 29);
-  font-size: 3rem;
+  background-color: rgb(48, 49, 52);
+  font-size: 1rem;
   font-weight: 400;
   color: #e2e2e2;
 }
 
 .coin-input::placeholder {
-  color: rgb(40, 42, 46);
+  color: rgb(100, 112, 124);
 }
 
 .coin-input:focus {
@@ -89,11 +95,7 @@
 .coin-data-label-cointainer {
   display: flex;
   justify-content: center;
-  font-weight: 700;
-}
-
-.coin-data-label-wrapper > p {
-  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .coin-data-label-wrapper {
@@ -102,7 +104,7 @@
   justify-items: start;
   align-items: center;
   height: 50px;
-  border-bottom: 1px solid rgb(60, 68, 82);
+  border-bottom: 1px solid rgb(60, 64, 67);
   width: 1000px;
   font-size: 0.9rem;
 }
@@ -121,10 +123,6 @@
   text-align: right;
   justify-content: space-between;
   width: 100%;
-}
-
-.data-label-container > p {
-  font-size: 0.8rem;
 }
 
 .coin-price-label {
