@@ -202,16 +202,16 @@ function Popup({
             <div className='popup-header-details'>
               <div className='popup-img-container'>
                 <div className='popup-image-name-wrapper'>
-                  <img className='popup-image' src={image} alt='crypto-image' />
                   <p className='popup-coin-name'>{name}</p>
-                  <p className='popup-coin-symbol'>{symbol.toUpperCase()}</p>
+                  <img className='popup-image' src={image} alt='crypto-image' />
                 </div>
+                <p className='popup-coin-symbol'>
+                  <span>Abbr:</span> {symbol.toUpperCase()}
+                </p>
               </div>
               <div className='popup-price-container'>
                 <div className='popup-price-wrapper'>
-                  <h1 className='popup-price'>
-                    {currentPrice} <span className='popup-currency'>USD</span>
-                  </h1>
+                  <h1 className='popup-price'>${currentPrice}</h1>
                 </div>
               </div>
               <div className='popup-pricechange-container'>
@@ -232,7 +232,7 @@ function Popup({
                       ) : (
                         priceCondition
                       )}{' '}
-                      USD ({/* percSwitch == undefined causes crashing */}
+                      ({/* percSwitch == undefined causes crashing */}
                       {percSwitch == null || percSwitch == undefined
                         ? 'unavailable'
                         : percSwitch > 0
