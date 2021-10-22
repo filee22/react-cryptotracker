@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   /* padding-right: 24px; */
-  min-width: 280px;
+  min-width: 250px;
 }
 
 .coin-rank {
@@ -59,6 +59,10 @@
   color: rgb(221, 222, 225);
 }
 
+.coin-pricechange {
+  width: 110px;
+}
+
 .coin-volume {
   width: 155px;
   padding-right: 20px;
@@ -72,11 +76,38 @@
   width: 100px;
 }
 
+.coin-percent-container {
+  padding: 4px;
+  border-radius: 8px;
+}
+
 .red {
-  /* color: rgb(242, 139, 130); */
   color: rgb(242, 139, 130);
 }
 
 .green {
   color: rgb(129, 201, 149);
+}
+
+#coin-arrow-down {
+  color: rgb(65, 30, 30);
+  background-color: rgb(209, 123, 114);
+}
+
+#coin-arrow-up {
+  color: rgb(28, 65, 40);
+  background-color: rgb(105, 185, 127);
+}
+
+.red-cont {
+  /* color: rgb(242, 139, 130); */
+  color: rgb(65, 30, 30);
+  background-color: rgb(209, 123, 114);
+  font-weight: 500;
+}
+
+.green-cont {
+  color: rgb(28, 65, 40);
+  background-color: rgb(105, 185, 127);
+  font-weight: 500;
 }
