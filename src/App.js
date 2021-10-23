@@ -9,39 +9,37 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [coins, setCoins] = useState([])
   const [search, setSearch] = useState('')
-  const [coinNum, setCoinNum] = useState('')
+  const [activeCoins, setActiveCoins] = useState([])
+  const [totalMarketCap, setTotalMarketCap] = useState([])
+  const [totalVolume, setTotalVolume] = useState([])
+  const [dominance, setDominance] = useState([])
   const [pageId, setPageId] = useState(1)
 
   // ----------------- API FETCHING -----------------
   useEffect(() => {
     setLoading(true)
-    const fetchCoins = () => {
-      axios
-        .get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${pageId}&sparkline=false`
-        )
-        .then((res) => {
-          setCoins(res.data)
-          console.log(res)
-          setTimeout(() => {
-            setLoading(false)
-          }, 1000)
-        })
-        .catch((error) => console.log(error))
-    }
-    fetchCoins()
+    axios
+      .get(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${pageId}&sparkline=false`
+      )
+      .then((res) => {
+        setCoins(res.data)
+        setTimeout(() => {
+          setLoading(false)
+        }, 1000)
+      })
+      .catch((error) => console.log(error))
 
     // ----- NUMBER OF TRACKED COINS (FOR PAGE NUMBER MAPPING) -----
-    const fetchCoinList = () => {
-      axios
-        .get('https://api.coingecko.com/api/v3/global')
-        .then((res) => {
-          setCoinNum(res.data.data.active_cryptocurrencies)
-          console.log(res.data)
-        })
-        .catch((error) => console.log(error))
-    }
-    fetchCoinList()
+    axios
+      .get('https://api.coingecko.com/api/v3/global')
+      .then((res) => {
+        setActiveCoins(res.data.data)
+        setTotalMarketCap(res.data.data.total_market_cap.usd)
+        setTotalVolume(res.data.data.total_volume.usd)
+        setDominance(res.data.data.market_cap_percentage)
+      })
+      .catch((error) => console.log(error))
   }, [pageId])
 
   const handleChange = (e) => {
@@ -65,6 +63,12 @@ function App() {
   const override = css`
     padding-top: 10rem;
   `
+  const dominanceData = Object.keys(dominance)
+    .map((key) => ({
+      id: String(key),
+      value: dominance[key],
+    }))
+    .slice(0, 3)
 
   return (
     <div className='app'>
@@ -79,6 +83,43 @@ function App() {
                 onChange={handleChange}
               />
             </form>
+            <div className='global-data-container'>
+              <div className='active-cryptos'>
+                <p>
+                  Cryptos: <span>{activeCoins.active_cryptocurrencies}</span>
+                </p>
+                <p>
+                  Market Cap:{' '}
+                  <span>
+                    $
+                    {totalMarketCap.toLocaleString(undefined, {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 0,
+                    })}
+                  </span>
+                </p>
+                <p>
+                  24h Vol:{' '}
+                  <span>
+                    $
+                    {totalVolume.toLocaleString(undefined, {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 0,
+                    })}
+                  </span>
+                </p>
+              </div>
+              <div className='dominance-container'>
+                <div className='dominance-wrapper'>
+                  Dominance:{' '}
+                  {dominanceData.map((coin) => (
+                    <span>
+                      {coin.id.toUpperCase()}: {coin.value.toFixed(1)}%
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
           {/* <h1 className='coin-text'>Search a currency</h1> */}
         </div>
@@ -89,7 +130,7 @@ function App() {
               <p className='coin-name-label'>Name</p>
               <div className='data-label-container'>
                 <p className='coin-price-label'>Price</p>
-                <p className='coin-pricechange-label'>Change</p>
+                <p className='coin-pricechange-label'>Change (24h)</p>
                 <p className='twoFour-hours-price-change-label'>24h %</p>
                 <p className='market-cap-label'>Market Cap</p>
                 <p className='volume-label'>Volume (24h)</p>
