@@ -49,8 +49,6 @@ function Coin({
         })
   }
 
-  console.log(priceChange)
-
   return (
     <div className='coin-container'>
       <div className='coin-row' onClick={openPopup}>
