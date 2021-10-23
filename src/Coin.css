@@ -66,10 +66,12 @@
 .coin-volume {
   width: 155px;
   padding-right: 20px;
+  color: rgb(188, 192, 195);
 }
 
 .coin-marketcap {
   width: 155px;
+  color: rgb(188, 192, 195);
 }
 
 .coin-percent {
