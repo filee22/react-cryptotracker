@@ -56,7 +56,7 @@
 .coin-search-container {
   width: 1000px;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
 }
 
 .coin-text {
@@ -107,7 +107,7 @@
   height: 50px;
   border-bottom: 1px solid rgb(54, 56, 59);
   width: 1000px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .coin-rank-label {
@@ -175,4 +175,42 @@
   font-size: 1rem;
   font-weight: 500;
   padding: 10px;
+}
+
+.global-data-container {
+  font-size: 0.7rem;
+}
+
+.active-cryptos {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.2rem;
+}
+
+.active-cryptos > p {
+  font-weight: 500;
+}
+
+.active-cryptos p > span {
+  color: rgb(221, 222, 225);
+  font-weight: 500;
+}
+
+.dominance-container {
+  display: flex;
+  justify-content: right;
+  padding-top: 0.2rem;
+}
+
+.dominance-wrapper {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.dominance-wrapper > span {
+  font-weight: 500;
+  color: rgb(221, 222, 225);
 }
