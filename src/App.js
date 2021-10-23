@@ -83,43 +83,58 @@ function App() {
                 onChange={handleChange}
               />
             </form>
-            <div className='global-data-container'>
-              <div className='active-cryptos'>
-                <p>
-                  Cryptos: <span>{activeCoins.active_cryptocurrencies}</span>
-                </p>
-                <p>
-                  Market Cap:{' '}
-                  <span>
-                    $
-                    {totalMarketCap.toLocaleString(undefined, {
-                      minimumFractionDigits: 0,
-                      maximumFractionDigits: 0,
-                    })}
-                  </span>
-                </p>
-                <p>
-                  24h Vol:{' '}
-                  <span>
-                    $
-                    {totalVolume.toLocaleString(undefined, {
-                      minimumFractionDigits: 0,
-                      maximumFractionDigits: 0,
-                    })}
-                  </span>
-                </p>
-              </div>
-              <div className='dominance-container'>
-                <div className='dominance-wrapper'>
-                  Dominance:{' '}
-                  {dominanceData.map((coin) => (
-                    <span>
-                      {coin.id.toUpperCase()}: {coin.value.toFixed(1)}%
-                    </span>
-                  ))}
+            {loading ? (
+              <div className='global-loader'>
+                <div className='global-loader-container1'>
+                  <div className='global-shimmer-wrapper'>
+                    <div className='global-shimmer'></div>
+                  </div>
+                </div>
+                <div className='global-loader-container2'>
+                  <div className='global-shimmer-wrapper'>
+                    <div className='global-shimmer'></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className='global-data-container'>
+                <div className='active-cryptos'>
+                  <p>
+                    Cryptos: <span>{activeCoins.active_cryptocurrencies}</span>
+                  </p>
+                  <p>
+                    Market Cap:{' '}
+                    <span>
+                      $
+                      {totalMarketCap.toLocaleString(undefined, {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                      })}
+                    </span>
+                  </p>
+                  <p>
+                    24h Vol:{' '}
+                    <span>
+                      $
+                      {totalVolume.toLocaleString(undefined, {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                      })}
+                    </span>
+                  </p>
+                </div>
+                <div className='dominance-container'>
+                  <div className='dominance-wrapper'>
+                    Dominance:{' '}
+                    {dominanceData.map((coin) => (
+                      <span>
+                        {coin.id.toUpperCase()}: {coin.value.toFixed(1)}%
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
           {/* <h1 className='coin-text'>Search a currency</h1> */}
         </div>
