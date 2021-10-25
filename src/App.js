@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import Coin from './Coin'
 import './App.css'
 import BeatLoader from 'react-spinners/BeatLoader'
 import { css } from '@emotion/react'
+import CoinSkeleton from './CoinSkeleton'
 
 function App() {
   const [loading, setLoading] = useState(false)
+  const [globalLoading, setGlobalLoading] = useState(false)
   const [coins, setCoins] = useState([])
   const [search, setSearch] = useState('')
   const [activeCoins, setActiveCoins] = useState([])
@@ -16,6 +18,7 @@ function App() {
   const [pageId, setPageId] = useState(1)
 
   // ----------------- API FETCHING -----------------
+  // ------- GET COINS -------
   useEffect(() => {
     setLoading(true)
     axios
@@ -29,8 +32,12 @@ function App() {
         }, 1000)
       })
       .catch((error) => console.log(error))
+  }, [pageId])
 
-    // ----- NUMBER OF TRACKED COINS (FOR PAGE NUMBER MAPPING) -----
+  // ------- GET GLOBAL COIN DATA -------
+  // Separate useEffect so it doesn't rerender and refetch on page change
+  useEffect(() => {
+    setGlobalLoading(true)
     axios
       .get('https://api.coingecko.com/api/v3/global')
       .then((res) => {
@@ -38,9 +45,12 @@ function App() {
         setTotalMarketCap(res.data.data.total_market_cap.usd)
         setTotalVolume(res.data.data.total_volume.usd)
         setDominance(res.data.data.market_cap_percentage)
+        setTimeout(() => {
+          setGlobalLoading(false)
+        }, 1000)
       })
       .catch((error) => console.log(error))
-  }, [pageId])
+  }, [])
 
   const handleChange = (e) => {
     setSearch(e.target.value)
@@ -83,7 +93,7 @@ function App() {
                 onChange={handleChange}
               />
             </form>
-            {loading ? (
+            {globalLoading ? (
               <div className='global-loader'>
                 <div className='global-loader-container1'>
                   <div className='global-shimmer-wrapper'>
@@ -152,13 +162,19 @@ function App() {
               </div>
             </div>
           </div>
+          {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+            <CoinSkeleton key={n} />
+          ))} */}
           {loading ? (
-            <BeatLoader
-              color={'#8189A7'}
-              loading={loading}
-              css={override}
-              size={10}
-            />
+            // <BeatLoader
+            //   color={'#8189A7'}
+            //   loading={loading}
+            //   css={override}
+            //   size={10}
+            // />
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => (
+              <CoinSkeleton key={n} />
+            ))
           ) : (
             <div className='mapped-coins'>
               {filteredCoins.map((coin) => {
