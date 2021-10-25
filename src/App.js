@@ -172,9 +172,7 @@ function App() {
             //   css={override}
             //   size={10}
             // />
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => (
-              <CoinSkeleton key={n} />
-            ))
+            [1, 2, 3].map((n) => <CoinSkeleton key={n} />)
           ) : (
             <div className='mapped-coins'>
               {filteredCoins.map((coin) => {
