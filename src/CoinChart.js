@@ -84,6 +84,24 @@ function CoinChart({
         },
       })
 
+      // let parentEventHandler = Chart.prototype._eventHandler
+      // Chart.prototype._eventHandler = function () {
+      //   let ret = parentEventHandler.apply(this, arguments)
+
+      //   let x = arguments[0].x
+      //   let y = arguments[0].y
+      //   this.clear()
+      //   this.draw()
+      //   let yScale = this.scales.y
+      //   this.ctx.beginPath()
+      //   this.ctx.moveTo(x, yScale.getPixelForValue(yScale.max, 0))
+      //   this.ctx.strokeStyle = '#ff0000'
+      //   this.ctx.lineTo(x, yScale.getPixelForValue(yScale.min, 0))
+      //   this.ctx.stroke()
+
+      //   return ret
+      // }
+
       return () => {
         myChart.destroy()
       }
