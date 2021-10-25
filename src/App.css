@@ -180,6 +180,7 @@
 
 .global-data-container {
   font-size: 0.7rem;
+  animation: fadein 0.1s;
 }
 
 .active-cryptos {
