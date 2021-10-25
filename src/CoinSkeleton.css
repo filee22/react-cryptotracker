@@ -29,46 +29,166 @@
   overflow: hidden;
 }
 
+.role-cont {
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+.rankload {
+  width: 57.4px;
+}
+
+.nameload {
+  width: 200px;
+}
+
+.priceload {
+  width: 103px;
+}
+
+.changeload {
+  width: 140px;
+}
+
+.percload {
+  width: 129px;
+}
+
+.mcapload {
+  width: 186px;
+}
+
+.volload {
+  width: 165px;
+}
+
 .rank-load {
   width: 20px;
   height: 20px;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin: auto;
 }
 
 .name-load {
+  width: 120px;
+  height: 20px;
+}
+
+.name2-load {
   width: 140px;
   height: 20px;
-  margin-right: 5.2rem;
+}
+
+.name3-load {
+  width: 180px;
+  height: 20px;
+}
+
+.name4-load {
+  width: 145px;
+  height: 20px;
 }
 
 .price-load {
   width: 90px;
   height: 20px;
+  margin-left: auto;
+}
+
+.price2-load {
+  width: 70px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.price3-load {
+  width: 60px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.price4-load {
+  width: 45px;
+  height: 20px;
+  margin-left: auto;
 }
 
 .change-load {
   width: 80px;
   height: 20px;
-  margin-left: 3.5rem;
+  margin-left: auto;
+}
+
+.change2-load {
+  width: 70px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.change3-load {
+  width: 55px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.change4-load {
+  width: 75px;
+  height: 20px;
+  margin-left: auto;
 }
 
 .perc-load {
   width: 70px;
   height: 20px;
-  margin-left: 3.7rem;
+  margin-left: auto;
 }
 
 .mcap-load {
   width: 140px;
   height: 20px;
-  margin-left: 3rem;
+  margin-left: auto;
+}
+
+.mcap2-load {
+  width: 130px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.mcap3-load {
+  width: 120px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.mcap4-load {
+  width: 120px;
+  height: 20px;
+  margin-left: auto;
 }
 
 .vol-load {
   width: 125px;
   height: 20px;
-  margin-left: 2.5rem;
+  margin-left: auto;
+}
+
+.vol2-load {
+  width: 120px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.vol3-load {
+  width: 110px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.vol4-load {
+  width: 110px;
+  height: 20px;
+  margin-left: auto;
 }
 
 .coin-shimmer-wrapper {
@@ -81,7 +201,7 @@
 }
 
 .coin-shimmer {
-  width: 50%;
+  width: 30%;
   height: 100%;
   background: rgba(69, 70, 77, 0.2);
   transform: skewX(-20deg);
