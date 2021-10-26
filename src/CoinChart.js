@@ -12,7 +12,7 @@ function CoinChart({
 }) {
   const chartRef = useRef()
 
-  Chart.register(...registerables)
+  // Chart.register(...registerables)
 
   useEffect(() => {
     if (chartRef && chartRef.current) {
@@ -57,50 +57,86 @@ function CoinChart({
           },
           maintainAspectRatio: false,
           responsive: true,
-          plugins: {
-            legend: {
-              display: false,
-            },
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            mode: 'index',
+            intersect: false,
+            backgroundColor: 'rgb(39, 40, 43)',
+            borderWidth: 1,
+            borderColor: 'rgb(154, 160, 166)',
+
+            // callbacks: {
+            //   title: function (item, everything) {
+            //     return
+            //   },
+            //   label: function (item, everything) {
+            //     console.log(item)
+            //     console.log(everything)
+            //   },
+            // },
           },
           scales: {
-            x: {
-              distribution: 'linear',
-              grid: {
-                display: false,
+            xAxes: [
+              {
+                distribution: 'linear',
+                gridLines: {
+                  display: false,
+                },
+                ticks: {
+                  maxTicksLimit: 7,
+                  maxRotation: 0,
+                  minRotation: 0,
+                  beginAtZero: false,
+                },
               },
-              ticks: {
-                maxTicksLimit: 7,
-                maxRotation: 0,
-                minRotation: 0,
+            ],
+            yAxes: [
+              {
+                gridLines: {
+                  color: 'rgba(53, 56, 59, 0.8)',
+                  drawBorder: false,
+                },
               },
-            },
-            y: {
-              grid: {
-                color: 'rgba(53, 56, 59, 0.8)',
-                borderWidth: 0,
-              },
-            },
+            ],
+          },
+          customLine: {
+            color: 'rgb(154, 160, 166)',
           },
         },
+        plugins: [
+          {
+            beforeEvent: function (chart, e) {
+              //console.log("Before => ", chart);
+              if (
+                e.type === 'mousemove' &&
+                e.x >= e.chart.chartArea.left &&
+                e.x <= e.chart.chartArea.right
+              ) {
+                chart.options.customLine.x = e.x
+              }
+            },
+            afterDraw: function (chart, easing) {
+              //console.log("After => ", chart, chart.options.customLine);
+
+              var ctx = chart.chart.ctx
+              var chartArea = chart.chartArea
+              var x = chart.options.customLine.x
+
+              if (!isNaN(x)) {
+                ctx.save()
+                ctx.beginPath()
+                ctx.strokeStyle = chart.options.customLine.color
+                ctx.moveTo(chart.options.customLine.x, chartArea.bottom)
+                ctx.lineTo(chart.options.customLine.x, chartArea.top)
+                ctx.stroke()
+                ctx.restore()
+              }
+            },
+          },
+        ],
       })
-
-      // let parentEventHandler = Chart.prototype._eventHandler
-      // Chart.prototype._eventHandler = function () {
-      //   let ret = parentEventHandler.apply(this, arguments)
-
-      //   let x = arguments[0].x
-      //   let y = arguments[0].y
-      //   this.clear()
-      //   this.draw()
-      //   let yScale = this.scales.y
-      //   this.ctx.beginPath()
-      //   this.ctx.moveTo(x, yScale.getPixelForValue(yScale.max, 0))
-      //   this.ctx.strokeStyle = '#ff0000'
-      //   this.ctx.lineTo(x, yScale.getPixelForValue(yScale.min, 0))
-      //   this.ctx.stroke()
-
-      //   return ret
-      // }
 
       return () => {
         myChart.destroy()
@@ -109,7 +145,7 @@ function CoinChart({
   })
   return (
     <div>
-      <canvas ref={chartRef} id='myChart'></canvas>
+      <canvas ref={chartRef} id='myChart' width='600' height='355'></canvas>
     </div>
   )
 }
