@@ -32,6 +32,7 @@ function CoinChart({
           datasets: [
             {
               label: `${name} price`,
+              lineTension: 0,
               fill: true,
               data: priceData,
               parsing: {
@@ -67,15 +68,34 @@ function CoinChart({
             borderWidth: 1,
             borderColor: 'rgb(154, 160, 166)',
 
-            // callbacks: {
-            //   title: function (item, everything) {
-            //     return
-            //   },
-            //   label: function (item, everything) {
-            //     console.log(item)
-            //     console.log(everything)
-            //   },
-            // },
+            callbacks: {
+              title: function (item, everything) {
+                // console.log(item)
+                let time = item[0].xLabel
+
+                return time
+              },
+              label: function (item, everything) {
+                // console.log(item)
+                // console.log(everything)
+
+                let price = item.yLabel
+
+                let priceFor =
+                  price >= 10 || price <= -10
+                    ? price.toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })
+                    : price.toLocaleString(undefined, {
+                        minimumFractionDigits: 4,
+                        maximumFractionDigits: 4,
+                      })
+
+                let label = `Price: ` + '$' + priceFor
+                return label
+              },
+            },
           },
           scales: {
             xAxes: [
