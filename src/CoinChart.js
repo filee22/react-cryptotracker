@@ -64,6 +64,7 @@ function CoinChart({
           tooltips: {
             mode: 'index',
             intersect: false,
+            displayColors: false,
             backgroundColor: 'rgb(39, 40, 43)',
             borderWidth: 1,
             borderColor: 'rgb(154, 160, 166)',
