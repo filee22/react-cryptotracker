@@ -83,14 +83,32 @@ function CoinChart({
                 let price = item.yLabel
 
                 let priceFor =
-                  price >= 10 || price <= -10
+                  (price < 10 && price >= 0.01) ||
+                  (price > -10 && price <= -0.01)
                     ? price.toLocaleString(undefined, {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })
-                    : price.toLocaleString(undefined, {
                         minimumFractionDigits: 4,
                         maximumFractionDigits: 4,
+                      })
+                    : (price < 0.01 && price >= 0.001) ||
+                      (price > -0.01 && price <= -0.001)
+                    ? price.toLocaleString(undefined, {
+                        minimumFractionDigits: 6,
+                        maximumFractionDigits: 6,
+                      })
+                    : (price < 0.001 && price >= 0.0001) ||
+                      (price > -0.001 && price <= -0.0001)
+                    ? price.toLocaleString(undefined, {
+                        minimumFractionDigits: 7,
+                        maximumFractionDigits: 7,
+                      })
+                    : price < 0.0001 && price > -0.0001
+                    ? price.toLocaleString(undefined, {
+                        minimumFractionDigits: 8,
+                        maximumFractionDigits: 8,
+                      })
+                    : price.toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
                       })
 
                 let label = `Price: ` + '$' + priceFor
@@ -148,6 +166,7 @@ function CoinChart({
               if (!isNaN(x)) {
                 ctx.save()
                 ctx.beginPath()
+                ctx.setLineDash([3, 3])
                 ctx.strokeStyle = chart.options.customLine.color
                 ctx.moveTo(chart.options.customLine.x, chartArea.bottom)
                 ctx.lineTo(chart.options.customLine.x, chartArea.top)
