@@ -26,10 +26,25 @@ function Coin({
 
   // ---- GET CURRENT PRICE AND FORMAT ----
   const currentPrice =
-    marketcap / supply < 1
+    marketcap / supply < 1 && marketcap / supply >= 0.01
       ? (marketcap / supply).toLocaleString(undefined, {
           minimumFractionDigits: 4,
           maximumFractionDigits: 4,
+        })
+      : marketcap / supply < 0.01 && marketcap / supply >= 0.001
+      ? (marketcap / supply).toLocaleString(undefined, {
+          minimumFractionDigits: 6,
+          maximumFractionDigits: 6,
+        })
+      : marketcap / supply < 0.001 && marketcap / supply >= 0.0001
+      ? (marketcap / supply).toLocaleString(undefined, {
+          minimumFractionDigits: 7,
+          maximumFractionDigits: 7,
+        })
+      : marketcap / supply < 0.0001
+      ? (marketcap / supply).toLocaleString(undefined, {
+          minimumFractionDigits: 8,
+          maximumFractionDigits: 8,
         })
       : (marketcap / supply).toLocaleString(undefined, {
           minimumFractionDigits: 2,
@@ -38,14 +53,32 @@ function Coin({
 
   const priceChange = () => {
     const priceCalc = (price * pricePerc24h) / (pricePerc24h + 100)
-    return priceCalc >= 1 || priceCalc <= -1
+    return (priceCalc < 1 && priceCalc >= 0.01) ||
+      (priceCalc > -1 && priceCalc <= -0.01)
       ? priceCalc.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
-      : priceCalc.toLocaleString(undefined, {
           minimumFractionDigits: 4,
           maximumFractionDigits: 4,
+        })
+      : (priceCalc < 0.01 && priceCalc >= 0.001) ||
+        (priceCalc > -0.01 && priceCalc <= -0.001)
+      ? priceCalc.toLocaleString(undefined, {
+          minimumFractionDigits: 6,
+          maximumFractionDigits: 6,
+        })
+      : (priceCalc < 0.001 && priceCalc >= 0.0001) ||
+        (priceCalc > -0.001 && priceCalc <= -0.0001)
+      ? priceCalc.toLocaleString(undefined, {
+          minimumFractionDigits: 7,
+          maximumFractionDigits: 7,
+        })
+      : priceCalc < 0.0001 && priceCalc > -0.0001
+      ? priceCalc.toLocaleString(undefined, {
+          minimumFractionDigits: 8,
+          maximumFractionDigits: 8,
+        })
+      : priceCalc.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
         })
   }
 
