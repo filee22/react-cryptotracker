@@ -29,6 +29,10 @@
   text-align: center;
 }
 
+.coin p {
+  min-width: 50px;
+}
+
 .coin img {
   height: 25px;
   width: 25px;
@@ -40,6 +44,9 @@
   /* width: 150px; */
   padding-right: 5px;
   color: rgb(221, 222, 225);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .coin-symbol {
