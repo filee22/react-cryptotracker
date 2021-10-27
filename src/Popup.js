@@ -149,14 +149,32 @@ function Popup({
   const priceCondition =
     priceSwitch == null
       ? price
-      : priceSwitch >= 1 || priceSwitch <= -1
+      : (priceSwitch < 10 && priceSwitch >= 0.01) ||
+        (priceSwitch > -10 && priceSwitch <= -0.01)
       ? priceSwitch.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
-      : priceSwitch.toLocaleString(undefined, {
           minimumFractionDigits: 4,
           maximumFractionDigits: 4,
+        })
+      : (priceSwitch < 0.01 && priceSwitch >= 0.001) ||
+        (priceSwitch > -0.01 && priceSwitch <= -0.001)
+      ? priceSwitch.toLocaleString(undefined, {
+          minimumFractionDigits: 6,
+          maximumFractionDigits: 6,
+        })
+      : (priceSwitch < 0.001 && priceSwitch >= 0.0001) ||
+        (priceSwitch > -0.001 && priceSwitch <= -0.0001)
+      ? priceSwitch.toLocaleString(undefined, {
+          minimumFractionDigits: 7,
+          maximumFractionDigits: 7,
+        })
+      : priceSwitch < 0.0001 && priceSwitch > -0.0001
+      ? priceSwitch.toLocaleString(undefined, {
+          minimumFractionDigits: 8,
+          maximumFractionDigits: 8,
+        })
+      : priceSwitch.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
         })
 
   console.log(percSwitch)
@@ -165,28 +183,62 @@ function Popup({
   const high24hCondition =
     high24h == null
       ? 'unavailable'
-      : high24h >= 1 || high24h <= -1
+      : (high24h < 1 && high24h >= 0.01) || (high24h > -1 && high24h <= -0.01)
       ? high24h.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
-      : high24h.toLocaleString(undefined, {
           minimumFractionDigits: 4,
           maximumFractionDigits: 4,
+        })
+      : (high24h < 0.01 && high24h >= 0.001) ||
+        (high24h > -0.01 && high24h <= -0.001)
+      ? high24h.toLocaleString(undefined, {
+          minimumFractionDigits: 6,
+          maximumFractionDigits: 6,
+        })
+      : (high24h < 0.001 && high24h >= 0.0001) ||
+        (high24h > -0.001 && high24h <= -0.0001)
+      ? high24h.toLocaleString(undefined, {
+          minimumFractionDigits: 7,
+          maximumFractionDigits: 7,
+        })
+      : high24h < 0.0001 && high24h > -0.0001
+      ? high24h.toLocaleString(undefined, {
+          minimumFractionDigits: 8,
+          maximumFractionDigits: 8,
+        })
+      : high24h.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
         })
 
   // ------- PREVENT 24H LOW PRICE FROM BEING RETURNED AS NULL -------
   const low24hCondition =
     low24h == null
       ? 'unavailable'
-      : low24h >= 1 || low24h <= -1
+      : (low24h < 1 && low24h >= 0.01) || (low24h > -1 && low24h <= -0.01)
       ? low24h.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
-      : low24h.toLocaleString(undefined, {
           minimumFractionDigits: 4,
           maximumFractionDigits: 4,
+        })
+      : (low24h < 0.01 && low24h >= 0.001) ||
+        (low24h > -0.01 && low24h <= -0.001)
+      ? low24h.toLocaleString(undefined, {
+          minimumFractionDigits: 6,
+          maximumFractionDigits: 6,
+        })
+      : (low24h < 0.001 && low24h >= 0.0001) ||
+        (low24h > -0.001 && low24h <= -0.0001)
+      ? low24h.toLocaleString(undefined, {
+          minimumFractionDigits: 7,
+          maximumFractionDigits: 7,
+        })
+      : low24h < 0.0001 && low24h > -0.0001
+      ? low24h.toLocaleString(undefined, {
+          minimumFractionDigits: 8,
+          maximumFractionDigits: 8,
+        })
+      : low24h.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
         })
 
   // ------- LOADING ANIMATION CSS -------
