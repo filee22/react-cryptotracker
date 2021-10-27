@@ -15,6 +15,7 @@
 
 .coin-row:hover {
   cursor: pointer;
+  background-color: rgb(39, 40, 44);
 }
 
 .coin {
