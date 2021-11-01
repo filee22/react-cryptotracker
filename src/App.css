@@ -10,6 +10,10 @@
   font-weight: 400;
 }
 
+html {
+  background-color: rgb(32, 33, 36);
+}
+
 .app {
   display: flex;
   justify-content: center;
@@ -60,9 +64,36 @@
   justify-content: space-between;
 }
 
+.results-box {
+  width: 380px;
+  height: 280px;
+  background-color: rgb(48, 49, 52);
+  border-radius: 1.5rem;
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.result-field-wrapper {
+  width: 380px;
+  height: 41px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.result-field {
+  width: 360px;
+  height: 1px;
+  background-color: rgb(96, 97, 99);
+  position: relative;
+}
+
 .coin-text {
   margin-bottom: 32px;
   text-align: center;
+  z-index: 0;
 }
 
 .coin-input {
@@ -71,7 +102,7 @@
   height: 40px;
   border-radius: 2rem;
   border: none;
-  border-bottom: solid 2px rgb(48, 54, 61);
+  /* border-bottom: solid 2px rgb(48, 54, 61); */
   /* background-image: linear-gradient(
     -225deg,
     #ac32e4 0%,
@@ -82,6 +113,8 @@
   font-size: 1rem;
   font-weight: 400;
   color: #e2e2e2;
+  z-index: 3;
+  position: relative;
 }
 
 .coin-input::placeholder {
