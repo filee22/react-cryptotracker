@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Coin from './Coin'
 import './App.css'
@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [globalLoading, setGlobalLoading] = useState(false)
   const [coins, setCoins] = useState([])
-  const [search, setSearch] = useState('')
+  const [searchInput, setSearchInput] = useState('')
   const [activeCoins, setActiveCoins] = useState([])
   const [totalMarketCap, setTotalMarketCap] = useState([])
   const [totalVolume, setTotalVolume] = useState([])
@@ -52,13 +52,19 @@ function App() {
       .catch((error) => console.log(error))
   }, [])
 
-  const handleChange = (e) => {
-    setSearch(e.target.value)
-  }
+  // const handleChange = (e) => {
+  //   setSearch(e.target.value)
+  //   console.log('text input')
+  // }
 
-  const filteredCoins = coins.filter((coin) =>
-    coin.name.toLowerCase().includes(search.toLowerCase())
-  )
+  // const filteredCoins = coins.filter((coin) =>
+  //   coin.name.toLowerCase().includes(search.toLowerCase())
+  // )
+
+  // const handleChange = (e) => {
+  //   setResults(true)
+  //   setSearch(e.target.value)
+  // }
 
   const handleNextPage = () => {
     setPageId(pageId + 1)
@@ -80,19 +86,33 @@ function App() {
     }))
     .slice(0, 3)
 
+  const handleChange = (e) => {
+    setSearchInput(e.target.value)
+  }
+
   return (
     <div className='app'>
       <div className='app-container'>
         <div className='coin-search'>
           <div className='coin-search-container'>
-            <form>
-              <input
-                type='text'
-                placeholder='Search'
-                className='coin-input'
-                onChange={handleChange}
-              />
-            </form>
+            {/* <form> */}
+            <input
+              type='text'
+              placeholder='Search'
+              className='coin-input'
+              id='inputName'
+              autocomplete='off'
+              onChange={handleChange}
+            />
+            {/* </form> */}
+            {searchInput !== '' ? (
+              <div className='results-box'>
+                <div className='result-field-wrapper'>
+                  <div className='result-field'></div>
+                </div>
+              </div>
+            ) : null}
+            {/* {checkInput} */}
             {globalLoading ? (
               <div className='global-loader'>
                 <div className='global-loader-container1'>
@@ -175,7 +195,7 @@ function App() {
             [1, 2, 3].map((n) => <CoinSkeleton key={n} />)
           ) : (
             <div className='mapped-coins'>
-              {filteredCoins.map((coin) => {
+              {coins.map((coin) => {
                 return (
                   <Coin
                     key={coin.id}
