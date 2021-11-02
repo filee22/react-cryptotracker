@@ -16,6 +16,7 @@ function App() {
   const [totalVolume, setTotalVolume] = useState([])
   const [dominance, setDominance] = useState([])
   const [pageId, setPageId] = useState(1)
+  const [allCoins, setAllCoins] = useState([])
 
   // ----------------- API FETCHING -----------------
   // ------- GET COINS -------
@@ -51,6 +52,19 @@ function App() {
       })
       .catch((error) => console.log(error))
   }, [])
+
+  // useEffect(() => {
+  //   axios.get('https://api.coingecko.com/api/v3/coins/list').then((res) => {
+  //     setAllCoins(res.data.name)
+  //     console.log(res)
+  //   })
+  // })
+
+  // const searchedCoins = allCoins.filter((coin) =>
+  //   coin.toLowerCase().includes(searchInput.toLowerCase())
+  // )
+
+  // console.log(allCoins)
 
   // const handleChange = (e) => {
   //   setSearch(e.target.value)
@@ -95,7 +109,6 @@ function App() {
       <div className='app-container'>
         <div className='coin-search'>
           <div className='coin-search-container'>
-            {/* <form> */}
             <input
               type='text'
               placeholder='Search'
@@ -104,15 +117,15 @@ function App() {
               autocomplete='off'
               onChange={handleChange}
             />
-            {/* </form> */}
             {searchInput !== '' ? (
               <div className='results-box'>
                 <div className='result-field-wrapper'>
-                  <div className='result-field'></div>
+                  <div className='result-field'>
+                    {/* {searchedCoins.slice(0, 3)} */}
+                  </div>
                 </div>
               </div>
             ) : null}
-            {/* {checkInput} */}
             {globalLoading ? (
               <div className='global-loader'>
                 <div className='global-loader-container1'>
