@@ -27,6 +27,7 @@
   justify-content: center;
   align-items: center;
   cursor: default;
+  z-index: 2;
 }
 
 .popup-wrapper {
@@ -246,6 +247,7 @@ span {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  text-align: right;
 }
 
 .popup-coin-detail-wrapper > span {
