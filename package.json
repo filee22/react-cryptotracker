@@ -10,6 +10,8 @@
     "axios": "^0.21.4",
     "chart.js": "^2.7.2",
     "chartjs-plugin-datalabels": "^2.0.0",
+    "cors": "^2.8.5",
+    "decimal.js": "^10.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
