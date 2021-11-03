@@ -124,6 +124,10 @@ function App() {
                     {/* {searchedCoins.slice(0, 3)} */}
                   </div>
                 </div>
+                <div className='search-error-container'>
+                  <img src='/doge_error.png' alt='error img' />
+                  <p>Oh heck! The search bar is not working yet!</p>
+                </div>
               </div>
             ) : null}
             {globalLoading ? (
