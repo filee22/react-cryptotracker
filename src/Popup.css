@@ -310,3 +310,36 @@ span {
     transform: translateX(150%);
   }
 }
+
+.popup-error-screen {
+  width: 930px;
+  height: 530px;
+  z-index: 5;
+  position: absolute;
+  background-color: var(--bc-primary);
+  margin-top: -7.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-error-container {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 6rem;
+}
+
+.popup-error-container > img {
+  width: 130px;
+}
+
+.popup-error-container > p {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: -0.5rem;
+}
