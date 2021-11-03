@@ -287,19 +287,29 @@ function Popup({
                         priceCondition
                       )}{' '}
                       ({/* percSwitch == undefined causes crashing */}
-                      {percSwitch == null || percSwitch == undefined
-                        ? 'unavailable'
-                        : percSwitch > 0
-                        ? percSwitch.toLocaleString(undefined, {
+                      {percSwitch == null || percSwitch == undefined ? (
+                        <div className='popup-error-screen'>
+                          <div className='popup-error-container'>
+                            <img src='/doge_error.png' alt='error img' />
+                            <p>
+                              Oh heck! The API is messing up, please close the
+                              window and try again.
+                            </p>
+                          </div>
+                        </div>
+                      ) : percSwitch > 0 ? (
+                        percSwitch.toLocaleString(undefined, {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })
+                      ) : (
+                        percSwitch
+                          .toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                           })
-                        : percSwitch
-                            .toLocaleString(undefined, {
-                              minimumFractionDigits: 2,
-                              maximumFractionDigits: 2,
-                            })
-                            .substr(1, 4)}
+                          .substr(1, 4)
+                      )}
                       %){' '}
                       {percSwitch > 0 ? (
                         <i class='fas fa-arrow-up' id='arrow-up'></i>
