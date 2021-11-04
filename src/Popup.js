@@ -36,9 +36,7 @@ function Popup({
   const [daysData, setDaysData] = useState(1)
   const [detailsData, setDetailsData] = useState([])
 
-  const [priceSwitch, setPriceSwitch] = useState(
-    price24h >= 1 ? price24h.toFixed(2) : price24h
-  )
+  const [priceSwitch, setPriceSwitch] = useState(price24h)
   const [percSwitch, setPercSwitch] = useState(pricePerc24h)
 
   // ------- CHART LOADING ANIMATION -------
