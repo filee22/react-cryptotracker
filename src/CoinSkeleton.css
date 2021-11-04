@@ -207,3 +207,33 @@
   transform: skewX(-20deg);
   box-shadow: 0 0 10px 10px rgba(157, 168, 182, 0.05);
 }
+
+@media screen and (max-width: 1024px) {
+  .coin-loader {
+    width: 700px;
+  }
+
+  .mcapload {
+    display: none;
+  }
+
+  .volload {
+    display: none;
+  }
+
+  .changeload {
+    width: 178.7px;
+  }
+
+  .percload {
+    width: 142px;
+  }
+
+  .rankload {
+    width: 48.7px;
+  }
+
+  .priceload {
+    width: 110px;
+  }
+}

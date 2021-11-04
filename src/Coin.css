@@ -121,3 +121,21 @@
   background-color: rgb(105, 185, 127);
   font-weight: 500;
 }
+
+@media screen and (max-width: 1024px) {
+  .coin-marketcap {
+    display: none;
+  }
+
+  .coin-volume {
+    display: none;
+  }
+
+  .coin-row {
+    width: 700px;
+  }
+
+  .coin-percent {
+    padding-right: 20px;
+  }
+}

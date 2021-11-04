@@ -334,3 +334,46 @@ html {
     transform: translateX(150%);
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .market-cap-label {
+    display: none;
+  }
+
+  .volume-label {
+    display: none;
+  }
+
+  .coin-data-label-wrapper {
+    width: 700px;
+  }
+
+  .twoFour-hours-price-change-label {
+    padding-right: 20px;
+  }
+
+  .coin-search-container {
+    width: 700px;
+  }
+
+  .coin-input {
+    width: 250px;
+  }
+
+  .results-box {
+    width: 250px;
+    height: 260px;
+  }
+
+  .result-field {
+    width: 230px;
+  }
+
+  .search-error-container {
+    width: 200px;
+  }
+
+  .coin-price-label {
+    width: 86px;
+  }
+}
