@@ -35,13 +35,12 @@
   padding: 32px;
   background: var(--bc-primary);
   display: flex;
-  width: 100vw;
-  max-width: 1000px;
-  max-height: 590px;
+  width: 1000px;
   height: 590px;
   justify-content: left;
   align-items: center;
   border-radius: 1rem;
+  flex-direction: row;
 }
 
 .popup-name-chart-wrapper {
