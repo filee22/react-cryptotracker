@@ -335,6 +335,8 @@ html {
   }
 }
 
+/* ------------------- 1024px screen width ------------------- */
+
 @media screen and (max-width: 1024px) {
   .market-cap-label {
     display: none;
@@ -371,6 +373,43 @@ html {
 
   .search-error-container {
     width: 200px;
+  }
+
+  .coin-price-label {
+    width: 86px;
+  }
+}
+
+/* ------------------- 705px screen width ------------------- */
+
+@media screen and (max-width: 705px) {
+  .coin-rank-label {
+    width: 16px;
+    margin-left: 10px;
+  }
+
+  .coin-name-label {
+    min-width: 100px;
+    margin-left: 10px;
+  }
+
+  .coin-pricechange-label {
+    display: none;
+  }
+
+  .data-label-container {
+    justify-content: flex-end;
+    width: 200px;
+    margin-left: auto;
+  }
+
+  .coin-data-label-wrapper {
+    width: 350px;
+    font-size: 0.75rem;
+  }
+
+  .twoFour-hours-price-change-label {
+    padding-right: 5px;
   }
 
   .coin-price-label {
