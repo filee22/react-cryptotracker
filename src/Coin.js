@@ -88,8 +88,10 @@ function Coin({
         <div className='coin'>
           <p className='coin-rank'>{rank}</p>
           <img src={image} alt='crypto' />
-          <h1>{name}</h1>
-          <p className='coin-symbol'>{symbol}</p>
+          <div className='name-symbol-wrap'>
+            <h1>{name}</h1>
+            <p className='coin-symbol'>{symbol}</p>
+          </div>
         </div>
         <div className='coin-data'>
           <p className='coin-price'>${currentPrice}</p>
