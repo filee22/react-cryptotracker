@@ -124,7 +124,7 @@ function CoinChart({
                   display: false,
                 },
                 ticks: {
-                  maxTicksLimit: 7,
+                  maxTicksLimit: 5,
                   maxRotation: 0,
                   minRotation: 0,
                   beginAtZero: false,
@@ -184,7 +184,7 @@ function CoinChart({
     }
   })
   return (
-    <div>
+    <div className='chart-style'>
       <canvas ref={chartRef} id='myChart' width='600' height='355'></canvas>
     </div>
   )
