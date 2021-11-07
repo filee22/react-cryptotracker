@@ -10,3 +10,10 @@ canvas {
     height: 250px;
   }
 }
+
+@media screen and (max-width: 705px) {
+  .chart-style {
+    width: 330px;
+    height: 380px;
+  }
+}
