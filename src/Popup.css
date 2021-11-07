@@ -451,3 +451,83 @@ span {
     margin-top: 15px;
   }
 }
+
+@media screen and (max-width: 705px) {
+  .popup-wrapper {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    /* white-space: nowrap;
+    overflow: auto hidden;
+    scrollbar-width: none; */
+  }
+
+  .popup-name-chart-wrapper {
+    align-items: center;
+  }
+
+  .popup-header-details {
+    width: 320px;
+  }
+
+  .popup-price {
+    font-size: 2.2rem;
+  }
+
+  .popup-pricechange {
+    flex-direction: column;
+    height: 70px;
+    /* padding-top: 0.5rem; */
+  }
+
+  .chart-wrapper {
+    margin-top: 2.6rem;
+  }
+
+  .popup-price-change {
+    font-size: 1rem;
+  }
+
+  .inactive-button {
+    font-size: 0.9rem;
+  }
+
+  .active-button-green {
+    font-size: 0.9rem;
+  }
+
+  .active-button-red {
+    font-size: 0.9rem;
+  }
+
+  .chartButtons-green {
+    margin-left: -5px;
+  }
+
+  .popup-coin-info-wrapper > button {
+    margin-right: -1.6rem;
+    margin-top: -33.3rem;
+  }
+
+  .popup-coin-info-container {
+    /* flex-wrap: nowrap; */
+    height: 200px;
+    margin-top: 34rem;
+    font-size: 0.8rem;
+  }
+
+  .popup-coin-info-wrapper {
+    margin-top: 0;
+    justify-content: center;
+  }
+
+  .popup-coin-detail-container {
+    border-right: 0;
+    margin-top: 0;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+  }
+
+  .popup-coin-detail-wrapper {
+    width: 180px;
+  }
+}
