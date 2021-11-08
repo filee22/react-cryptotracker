@@ -461,4 +461,17 @@ html {
   .pageNumber {
     font-size: 0.9rem;
   }
+
+  .global-loader {
+    align-items: center;
+  }
+
+  .global-loader-container1 {
+    width: 350px;
+    margin-top: 1.1rem;
+  }
+
+  .global-loader-container2 {
+    display: none;
+  }
 }
