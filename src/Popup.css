@@ -505,29 +505,58 @@ span {
   }
 
   .popup-coin-info-wrapper > button {
-    margin-right: -1.6rem;
-    margin-top: -33.3rem;
+    position: absolute;
+    margin-right: -17rem;
+    margin-left: auto;
+    border: solid 2px var(--tc-secondary);
+    background-color: var(--bc-primary);
+    padding: 0.5rem;
+    border-radius: 2rem;
+    /* margin-bottom: -20rem; */
+    /* visibility: hidden; */
+  }
+
+  #close-btn {
+    width: 24px;
+    height: 24px;
   }
 
   .popup-coin-info-container {
-    /* flex-wrap: nowrap; */
+    flex-wrap: nowrap;
     height: 200px;
-    margin-top: 34rem;
-    font-size: 0.8rem;
+    /* margin-top: 32rem; */
+    font-size: 1rem;
+    padding: 0;
+
+    /* scrollbar-width: none; */
   }
 
   .popup-coin-info-wrapper {
     margin-top: 0;
+    width: 320px;
+    margin-top: 1.5rem;
     justify-content: center;
+    align-self: center;
+    flex-direction: row;
   }
 
   .popup-coin-detail-container {
     border-right: 0;
     margin-top: 0;
-    padding: 0.5rem 0rem 0.5rem 0rem;
+    padding: 0 0 1rem 0;
   }
 
   .popup-coin-detail-wrapper {
-    width: 180px;
+    width: 300px;
+  }
+
+  .popup-coin-symbol {
+    padding-right: 0;
+  }
+
+  .loader-container {
+    width: 330px;
+    height: 28vh;
+    margin-top: 3.12rem;
   }
 }
