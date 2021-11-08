@@ -70,22 +70,22 @@
 }
 
 .name-load {
-  width: 120px;
+  width: 80px;
   height: 20px;
 }
 
 .name2-load {
-  width: 140px;
+  width: 100px;
   height: 20px;
 }
 
 .name3-load {
-  width: 180px;
+  width: 140px;
   height: 20px;
 }
 
 .name4-load {
-  width: 145px;
+  width: 105px;
   height: 20px;
 }
 
@@ -235,5 +235,28 @@
 
   .priceload {
     width: 110px;
+  }
+}
+
+@media screen and (max-width: 705px) {
+  .coin-loader {
+    width: 350px;
+    height: 65px;
+  }
+
+  .changeload {
+    display: none;
+  }
+
+  .perc-load {
+    width: 65px;
+  }
+
+  .percload {
+    width: 100px;
+  }
+
+  .nameload {
+    max-width: 150px;
   }
 }
