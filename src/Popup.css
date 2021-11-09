@@ -467,7 +467,7 @@ span {
   }
 
   .popup-header-details {
-    width: 320px;
+    width: 85vw;
   }
 
   .popup-price {
@@ -504,21 +504,14 @@ span {
     margin-left: -5px;
   }
 
-  .popup-coin-info-wrapper > button {
-    position: absolute;
-    margin-right: -17rem;
-    margin-left: auto;
-    border: solid 2px var(--tc-secondary);
-    background-color: var(--bc-primary);
-    padding: 0.5rem;
-    border-radius: 2rem;
-    /* margin-bottom: -20rem; */
-    /* visibility: hidden; */
-  }
-
-  #close-btn {
-    width: 24px;
-    height: 24px;
+  .popup-coin-info-wrapper {
+    margin-top: 0;
+    width: 85vw;
+    height: 50vh;
+    margin-top: 1.5rem;
+    justify-content: space-between;
+    align-self: center;
+    flex-direction: column;
   }
 
   .popup-coin-info-container {
@@ -527,17 +520,8 @@ span {
     /* margin-top: 32rem; */
     font-size: 1rem;
     padding: 0;
-
+    /* align-self: flex-start; */
     /* scrollbar-width: none; */
-  }
-
-  .popup-coin-info-wrapper {
-    margin-top: 0;
-    width: 320px;
-    margin-top: 1.5rem;
-    justify-content: center;
-    align-self: center;
-    flex-direction: row;
   }
 
   .popup-coin-detail-container {
@@ -550,12 +534,28 @@ span {
     width: 300px;
   }
 
+  .popup-coin-info-wrapper > button {
+    position: absolute;
+    margin: 0;
+    margin-top: 33vh;
+    border: solid 2px var(--tc-secondary);
+    background-color: var(--bc-primary);
+    padding: 0.5rem;
+    border-radius: 2rem;
+    /* visibility: hidden; */
+  }
+
+  #close-btn {
+    width: 24px;
+    height: 24px;
+  }
+
   .popup-coin-symbol {
     padding-right: 0;
   }
 
   .loader-container {
-    width: 330px;
+    width: 88vw;
     height: 28vh;
     margin-top: 3.12rem;
   }
