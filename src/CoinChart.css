@@ -13,7 +13,7 @@ canvas {
 
 @media screen and (max-width: 705px) {
   .chart-style {
-    width: 330px;
+    width: 88vw;
     height: 30vh;
   }
 }
