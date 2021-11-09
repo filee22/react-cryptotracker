@@ -159,9 +159,10 @@
   }
 
   .coin-row {
-    width: 350px;
+    width: 93.5vw;
     height: 65px;
     font-size: 0.85rem;
+    justify-content: space-between;
   }
 
   .name-symbol-wrap > h1 {
