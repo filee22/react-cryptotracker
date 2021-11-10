@@ -240,7 +240,7 @@
 
 @media screen and (max-width: 705px) {
   .coin-loader {
-    width: 350px;
+    width: 93.5vw;
     height: 65px;
   }
 
@@ -250,10 +250,20 @@
 
   .perc-load {
     width: 65px;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+
+  .priceload {
+    margin-right: 0;
+    margin-left: auto;
   }
 
   .percload {
-    width: 100px;
+    width: 75px;
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: flex-end;
   }
 
   .nameload {
