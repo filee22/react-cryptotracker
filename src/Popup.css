@@ -444,11 +444,17 @@ span {
   .popup-coin-info-wrapper > button {
     margin-right: -20.5rem;
     margin-top: -32.85rem;
+    z-index: 5;
   }
 
   .loader-container {
     height: 235px;
     margin-top: 15px;
+  }
+
+  .popup-error-screen {
+    width: 650px;
+    height: 550px;
   }
 }
 
@@ -542,7 +548,6 @@ span {
     background-color: var(--bc-primary);
     padding: 0.5rem;
     border-radius: 2rem;
-    /* visibility: hidden; */
   }
 
   #close-btn {
@@ -558,5 +563,15 @@ span {
     width: 88vw;
     height: 28vh;
     margin-top: 3.12rem;
+  }
+
+  .popup-error-screen {
+    width: 90vw;
+    height: 100vh;
+    margin-left: -2.5vw;
+  }
+
+  .popup-error-container {
+    width: 80vw;
   }
 }
