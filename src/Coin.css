@@ -187,4 +187,9 @@
     padding-right: 5px;
     width: 80px;
   }
+
+  .coin-price {
+    margin-right: 0;
+    margin-left: auto;
+  }
 }
