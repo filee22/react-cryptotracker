@@ -466,6 +466,7 @@ span {
     /* white-space: nowrap;
     overflow: auto hidden;
     scrollbar-width: none; */
+    padding-top: 1.2rem;
   }
 
   .popup-name-chart-wrapper {
@@ -517,12 +518,12 @@ span {
     margin-top: 1.5rem;
     justify-content: space-between;
     align-self: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .popup-coin-info-container {
     flex-wrap: nowrap;
-    height: 200px;
+    height: 100%;
     /* margin-top: 32rem; */
     font-size: 1rem;
     padding: 0;
@@ -543,7 +544,7 @@ span {
   .popup-coin-info-wrapper > button {
     position: absolute;
     margin: 0;
-    margin-top: 33vh;
+    margin-top: 32vh;
     border: solid 2px var(--tc-secondary);
     background-color: var(--bc-primary);
     padding: 0.5rem;
