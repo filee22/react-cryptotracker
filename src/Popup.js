@@ -288,7 +288,7 @@ function Popup({
                       {percSwitch == null || percSwitch == undefined ? (
                         <div className='popup-error-screen'>
                           <div className='popup-error-container'>
-                            <img src='/doge_error.png' alt='error img' />
+                            <img src='a/doge_error.png' alt='error img' />
                             <p>
                               Oh heck! The API is messing up, please close the
                               window and try again.

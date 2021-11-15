@@ -125,7 +125,7 @@ function App() {
                   </div>
                 </div>
                 <div className='search-error-container'>
-                  <img src='/doge_error.png' alt='error img' />
+                  <img src='./doge_error.png' alt='error img' />
                   <p>Oh heck! The search bar is not working yet!</p>
                 </div>
               </div>
