@@ -467,6 +467,7 @@ span {
     overflow: auto hidden;
     scrollbar-width: none; */
     padding-top: 1.2rem;
+    border-radius: 0;
   }
 
   .popup-name-chart-wrapper {
