@@ -512,6 +512,10 @@ span {
     margin-left: -5px;
   }
 
+  .chartButtons-red {
+    margin-left: -5px;
+  }
+
   .popup-coin-info-wrapper {
     margin-top: 0;
     width: 85vw;
