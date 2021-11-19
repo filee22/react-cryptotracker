@@ -444,6 +444,10 @@ html {
     scrollbar-width: none;
   }
 
+  .global-data-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .active-cryptos {
     padding-top: 0;
   }
