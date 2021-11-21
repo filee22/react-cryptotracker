@@ -6,6 +6,7 @@ import axios from 'axios'
 import BeatLoader from 'react-spinners/BeatLoader'
 import { css } from '@emotion/react'
 import { ClimbingBoxLoader } from 'react-spinners'
+import useLockBodyScroll from './use-lock-body-scroll'
 
 // ---- TODO: FIX POPUP SO IT DOESNT RENDER ALL INSTANCES IN DOM, ONLY WHEN CLICK
 // ---- TODO: CHANGE BY MAPPING THROUGH CHART DATA AND RETURNING ARRAY MIN AND MAX
@@ -44,6 +45,12 @@ function Popup({
 
   // ------- ACTIVE BUTTON CLASS TOGGLE -------
   const [active, setActive] = useState('day')
+
+  useLockBodyScroll()
+
+  const handleClose = () => {
+    setPopup(false)
+  }
 
   // ----------------- API FETCHING -----------------
   // ------- GET COIN CHART DATA FOR 1D, 7D, 30D, 200D, 1Y -------
@@ -429,7 +436,7 @@ function Popup({
             )}
           </div>
           <div className='popup-coin-info-wrapper'>
-            <button onClick={() => setPopup(false)}>
+            <button onClick={handleClose}>
               <i id='close-btn' class='fas fa-times'></i>
             </button>
             <div className='popup-coin-info-container'>
