@@ -552,11 +552,14 @@ span {
   }
 
   .popup-coin-info-wrapper > button {
-    position: static;
-    margin: 0;
+    position: fixed;
+    display: inline-flex;
+    bottom: 0;
+    right: 0;
+    margin: 0 2em 2em 0;
     /* margin-top: -22.95rem;
     margin-right: -0.2rem; */
-    margin-top: -1rem;
+    /* margin-top: -1rem; */
     border: solid 2px var(--tc-secondary);
     background-color: var(--bc-primary);
     padding: 0.5rem;
