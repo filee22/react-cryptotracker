@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Coin from './Coin'
 import './App.css'
-import BeatLoader from 'react-spinners/BeatLoader'
+import PuffLoader from 'react-spinners/PuffLoader'
 import { css } from '@emotion/react'
 import CoinSkeleton from './CoinSkeleton'
 
@@ -90,9 +90,11 @@ function App() {
     window.scrollTo({ top: 0 })
   }
 
-  const override = css`
-    padding-top: 10rem;
-  `
+  // const override = css`
+  //   width: 2rem;
+  //   height: 2rem;
+  // `
+
   const dominanceData = Object.keys(dominance)
     .map((key) => ({
       id: String(key),
@@ -123,6 +125,14 @@ function App() {
                   <div className='result-field'>
                     {/* {searchedCoins.slice(0, 3)} */}
                   </div>
+                </div>
+                <div className='search-loader'>
+                  <PuffLoader
+                    color={'#8189A7'}
+                    // loading={searchLoading}
+                    // css={override}
+                    size={50}
+                  />
                 </div>
                 <div className='search-error-container'>
                   <img src='./doge_error.png' alt='error img' />
@@ -203,12 +213,6 @@ function App() {
             <CoinSkeleton key={n} />
           ))} */}
           {loading ? (
-            // <BeatLoader
-            //   color={'#8189A7'}
-            //   loading={loading}
-            //   css={override}
-            //   size={10}
-            // />
             [1, 2, 3].map((n) => <CoinSkeleton key={n} />)
           ) : (
             <div className='mapped-coins'>
