@@ -5,13 +5,18 @@ canvas {
   padding-top: 0.5rem;
 }
 
+.chart-style {
+  width: 600px;
+  height: 355px;
+}
+
 @media screen and (max-width: 1024px) {
   .chart-style {
     height: 250px;
   }
 }
 
-@media screen and (max-width: 705px) {
+@media screen and (max-width: 705px), screen and (max-height: 590px) {
   .chart-style {
     min-height: 244px;
     width: 88vw;
