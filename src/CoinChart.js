@@ -185,7 +185,7 @@ function CoinChart({
   })
   return (
     <div className='chart-style'>
-      <canvas ref={chartRef} id='myChart' width='600' height='355'></canvas>
+      <canvas ref={chartRef} id='myChart'></canvas>
     </div>
   )
 }
