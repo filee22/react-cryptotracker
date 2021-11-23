@@ -398,6 +398,7 @@ html {
 
   .search-error-container {
     width: 200px;
+    padding-top: 4rem;
   }
 
   .search-loader {
