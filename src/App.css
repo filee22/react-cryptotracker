@@ -94,7 +94,8 @@ html {
 }
 
 .search-error-container {
-  padding-top: 1.5rem;
+  position: absolute;
+  padding-top: 7rem;
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -145,6 +146,27 @@ html {
 
 .coin-input:focus {
   outline: 0;
+}
+
+.search-loader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 200px;
+  margin-top: 0.5rem;
+  background-color: rgb(48, 49, 52);
+  animation: searchAnimation 0s ease-in 1s forwards;
+}
+
+@keyframes searchAnimation {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
 }
 
 /* ----------Coin data labels----------- */
@@ -375,6 +397,10 @@ html {
   }
 
   .search-error-container {
+    width: 200px;
+  }
+
+  .search-loader {
     width: 200px;
   }
 
