@@ -6,7 +6,7 @@ import axios from 'axios'
 import BeatLoader from 'react-spinners/BeatLoader'
 import { css } from '@emotion/react'
 import { ClimbingBoxLoader } from 'react-spinners'
-import useLockBodyScroll from './use-lock-body-scroll'
+import useLockBodyScroll from './useLockBodyScroll'
 
 // ---- TODO: FIX POPUP SO IT DOESNT RENDER ALL INSTANCES IN DOM, ONLY WHEN CLICK
 // ---- TODO: CHANGE BY MAPPING THROUGH CHART DATA AND RETURNING ARRAY MIN AND MAX
