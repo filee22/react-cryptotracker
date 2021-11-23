@@ -95,7 +95,7 @@ html {
 
 .search-error-container {
   position: absolute;
-  padding-top: 7rem;
+  padding-top: 5rem;
   width: 250px;
   display: flex;
   flex-direction: column;
