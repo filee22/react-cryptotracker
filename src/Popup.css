@@ -458,7 +458,7 @@ span {
   }
 }
 
-@media screen and (max-width: 705px) {
+@media screen and (max-width: 705px), screen and (max-height: 590px) {
   .popup-wrapper {
     width: 100vw;
     height: 100vh;
