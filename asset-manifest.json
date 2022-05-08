@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react_cryptotracker/static/css/main.7e38f138.chunk.css",
-    "main.js": "/react_cryptotracker/static/js/main.cd7f1a5e.chunk.js",
-    "main.js.map": "/react_cryptotracker/static/js/main.cd7f1a5e.chunk.js.map",
+    "main.css": "/react_cryptotracker/static/css/main.46487ec6.chunk.css",
+    "main.js": "/react_cryptotracker/static/js/main.51b9c240.chunk.js",
+    "main.js.map": "/react_cryptotracker/static/js/main.51b9c240.chunk.js.map",
     "runtime-main.js": "/react_cryptotracker/static/js/runtime-main.0e407733.js",
     "runtime-main.js.map": "/react_cryptotracker/static/js/runtime-main.0e407733.js.map",
-    "static/js/2.1532c689.chunk.js": "/react_cryptotracker/static/js/2.1532c689.chunk.js",
-    "static/js/2.1532c689.chunk.js.map": "/react_cryptotracker/static/js/2.1532c689.chunk.js.map",
+    "static/js/2.74be2b48.chunk.js": "/react_cryptotracker/static/js/2.74be2b48.chunk.js",
+    "static/js/2.74be2b48.chunk.js.map": "/react_cryptotracker/static/js/2.74be2b48.chunk.js.map",
     "index.html": "/react_cryptotracker/index.html",
-    "static/css/main.7e38f138.chunk.css.map": "/react_cryptotracker/static/css/main.7e38f138.chunk.css.map",
-    "static/js/2.1532c689.chunk.js.LICENSE.txt": "/react_cryptotracker/static/js/2.1532c689.chunk.js.LICENSE.txt"
+    "static/css/main.46487ec6.chunk.css.map": "/react_cryptotracker/static/css/main.46487ec6.chunk.css.map",
+    "static/js/2.74be2b48.chunk.js.LICENSE.txt": "/react_cryptotracker/static/js/2.74be2b48.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0e407733.js",
-    "static/js/2.1532c689.chunk.js",
-    "static/css/main.7e38f138.chunk.css",
-    "static/js/main.cd7f1a5e.chunk.js"
+    "static/js/2.74be2b48.chunk.js",
+    "static/css/main.46487ec6.chunk.css",
+    "static/js/main.51b9c240.chunk.js"
   ]
 }
