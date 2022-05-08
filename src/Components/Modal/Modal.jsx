@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useMountedState } from 'react-use'
-import CoinChart from './CoinChart'
-import './Popup.css'
+import Chart from '../CoinChart/CoinChart'
+import './_modal.scss'
 import axios from 'axios'
-import BeatLoader from 'react-spinners/BeatLoader'
 import { css } from '@emotion/react'
-import { ClimbingBoxLoader } from 'react-spinners'
-import useLockBodyScroll from './useLockBodyScroll'
+import useLockBodyScroll from '../../Hooks/useLockBodyScroll'
+import useFormatNumdata from '../../Hooks/useFormatNumData'
 
-// ---- TODO: FIX POPUP SO IT DOESNT RENDER ALL INSTANCES IN DOM, ONLY WHEN CLICK
-// ---- TODO: CHANGE BY MAPPING THROUGH CHART DATA AND RETURNING ARRAY MIN AND MAX
-// ---- TODO: CREATE REUSABLE COMPONENT
-// ---- TODO: Add useContext to pass down props better
-// ---- TODO: Fix percSwitch undefined (ASYNC PROBLEM)
-
-function Popup({
+const Modal = ({
   coinId,
-  setPopup,
+  setModal,
   image,
   name,
   price,
@@ -30,7 +23,7 @@ function Popup({
   symbol,
   high24h,
   low24h,
-}) {
+}) => {
   const [chartPrice, setChartPrice] = useState([])
   const [chartTime, setChartTime] = useState([])
 
@@ -46,10 +39,12 @@ function Popup({
   // ------- ACTIVE BUTTON CLASS TOGGLE -------
   const [active, setActive] = useState('day')
 
+  // PREVENT SCROLL WHILE MODAL OPEN
   useLockBodyScroll()
 
+  // MODAL CLOSE BUTTON
   const handleClose = () => {
-    setPopup(false)
+    setModal(false)
   }
 
   // ----------------- API FETCHING -----------------
@@ -65,8 +60,8 @@ function Popup({
         setChartTime(
           res.data.prices.map((el) =>
             daysData > 1
-              ? [new Date(el[0]).toString().substr(4, 6)]
-              : [new Date(el[0]).toString().substr(16, 5)]
+              ? [new Date(el[0]).toString().substring(4, 10)]
+              : [new Date(el[0]).toString().substring(16, 21)]
           )
         )
         setTimeout(() => {
@@ -78,7 +73,7 @@ function Popup({
 
   // ------- GET COIN MARKET DATA -------
   // Separate useEffect used to prevent refetching when using time specific togglers (1d, 7d etc)
-  // Fetch coin market data only on open popup
+  // Fetch coin market data only on open modal
 
   // --- Cleanup memory leaks on an Unmounted Component ---
   const isMounted = useMountedState()
@@ -93,18 +88,9 @@ function Popup({
           console.log(result.data.market_data)
         }
       })
-
-    // await axios
-    //   .get(`https://api.coingecko.com/api/v3/coins/${coinId}`)
-    //   .then((res) => {
-    //     setDetailsData(res.data.market_data)
-    //   })
-    //   .catch((error) => console.log(error))
   }, [coinId])
 
   //  ----------------- DISPLAY DATA TOGGLERS -----------------
-  // TODO: Create reusable button component which uses the dayData function
-  // while using object data (store day data into object)
 
   // ------- 1 DAY -------
   const oneDayData = () => {
@@ -153,100 +139,13 @@ function Popup({
   //  ----------------- CONDITIONS -----------------
 
   // ------- PREVENT PRICE FROM BEING RETURNED AS NULL -------
-  const priceCondition =
-    priceSwitch == null
-      ? price
-      : (priceSwitch < 10 && priceSwitch >= 0.01) ||
-        (priceSwitch > -10 && priceSwitch <= -0.01)
-      ? priceSwitch.toLocaleString(undefined, {
-          minimumFractionDigits: 4,
-          maximumFractionDigits: 4,
-        })
-      : (priceSwitch < 0.01 && priceSwitch >= 0.001) ||
-        (priceSwitch > -0.01 && priceSwitch <= -0.001)
-      ? priceSwitch.toLocaleString(undefined, {
-          minimumFractionDigits: 6,
-          maximumFractionDigits: 6,
-        })
-      : (priceSwitch < 0.001 && priceSwitch >= 0.0001) ||
-        (priceSwitch > -0.001 && priceSwitch <= -0.0001)
-      ? priceSwitch.toLocaleString(undefined, {
-          minimumFractionDigits: 7,
-          maximumFractionDigits: 7,
-        })
-      : priceSwitch < 0.0001 && priceSwitch > -0.0001
-      ? priceSwitch.toLocaleString(undefined, {
-          minimumFractionDigits: 8,
-          maximumFractionDigits: 8,
-        })
-      : priceSwitch.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
-
-  console.log(percSwitch)
+  const priceCondition = useFormatNumdata(priceSwitch, 10, price)
 
   // ------- PREVENT 24H HIGH PRICE FROM BEING RETURNED AS NULL -------
-  const high24hCondition =
-    high24h == null
-      ? 'unavailable'
-      : (high24h < 1 && high24h >= 0.01) || (high24h > -1 && high24h <= -0.01)
-      ? high24h.toLocaleString(undefined, {
-          minimumFractionDigits: 4,
-          maximumFractionDigits: 4,
-        })
-      : (high24h < 0.01 && high24h >= 0.001) ||
-        (high24h > -0.01 && high24h <= -0.001)
-      ? high24h.toLocaleString(undefined, {
-          minimumFractionDigits: 6,
-          maximumFractionDigits: 6,
-        })
-      : (high24h < 0.001 && high24h >= 0.0001) ||
-        (high24h > -0.001 && high24h <= -0.0001)
-      ? high24h.toLocaleString(undefined, {
-          minimumFractionDigits: 7,
-          maximumFractionDigits: 7,
-        })
-      : high24h < 0.0001 && high24h > -0.0001
-      ? high24h.toLocaleString(undefined, {
-          minimumFractionDigits: 8,
-          maximumFractionDigits: 8,
-        })
-      : high24h.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
+  const high24hCondition = useFormatNumdata(high24h, 1, 'unavailable')
 
   // ------- PREVENT 24H LOW PRICE FROM BEING RETURNED AS NULL -------
-  const low24hCondition =
-    low24h == null
-      ? 'unavailable'
-      : (low24h < 1 && low24h >= 0.01) || (low24h > -1 && low24h <= -0.01)
-      ? low24h.toLocaleString(undefined, {
-          minimumFractionDigits: 4,
-          maximumFractionDigits: 4,
-        })
-      : (low24h < 0.01 && low24h >= 0.001) ||
-        (low24h > -0.01 && low24h <= -0.001)
-      ? low24h.toLocaleString(undefined, {
-          minimumFractionDigits: 6,
-          maximumFractionDigits: 6,
-        })
-      : (low24h < 0.001 && low24h >= 0.0001) ||
-        (low24h > -0.001 && low24h <= -0.0001)
-      ? low24h.toLocaleString(undefined, {
-          minimumFractionDigits: 7,
-          maximumFractionDigits: 7,
-        })
-      : low24h < 0.0001 && low24h > -0.0001
-      ? low24h.toLocaleString(undefined, {
-          minimumFractionDigits: 8,
-          maximumFractionDigits: 8,
-        })
-      : low24h.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
+  const low24hCondition = useFormatNumdata(low24h, 1, 'unavailable')
 
   // ------- LOADING ANIMATION CSS -------
   const override = css`
@@ -255,32 +154,32 @@ function Popup({
 
   return (
     <>
-      <div className='popup-background'>
-        <div className='popup-wrapper'>
-          <div className='popup-name-chart-wrapper'>
-            <div className='popup-header-details'>
-              <div className='popup-img-container'>
-                <div className='popup-image-name-wrapper'>
-                  <p className='popup-coin-name'>{name}</p>
-                  <img className='popup-image' src={image} alt='crypto-image' />
+      <div className='modal-background'>
+        <div className='modal-wrapper'>
+          <div className='modal-name-chart-wrapper'>
+            <div className='modal-header-details'>
+              <div className='modal-img-container'>
+                <div className='modal-image-name-wrapper'>
+                  <p className='modal-coin-name'>{name}</p>
+                  <img className='modal-image' src={image} alt='crypto-image' />
                 </div>
-                <p className='popup-coin-symbol'>
+                <p className='modal-coin-symbol'>
                   <span>Abbr:</span> {symbol.toUpperCase()}
                 </p>
               </div>
-              <div className='popup-price-container'>
-                <div className='popup-price-wrapper'>
-                  <h1 className='popup-price'>${currentPrice}</h1>
+              <div className='modal-price-container'>
+                <div className='modal-price-wrapper'>
+                  <h1 className='modal-price'>${currentPrice}</h1>
                 </div>
               </div>
-              <div className='popup-pricechange-container'>
-                <div className='popup-pricechange-wrapper'>
-                  <div className='popup-pricechange'>
+              <div className='modal-pricechange-container'>
+                <div className='modal-pricechange-wrapper'>
+                  <div className='modal-pricechange'>
                     <p
                       className={
                         percSwitch > 0
-                          ? 'popup-price-change green-popup'
-                          : 'popup-price-change red-popup'
+                          ? 'modal-price-change green-modal'
+                          : 'modal-price-change red-modal'
                       }
                     >
                       {/* {percSwitch > 0 ? '+' : '-'} */}
@@ -293,8 +192,8 @@ function Popup({
                       )}{' '}
                       ({/* percSwitch == undefined causes crashing */}
                       {percSwitch == null || percSwitch == undefined ? (
-                        <div className='popup-error-screen'>
-                          <div className='popup-error-container'>
+                        <div className='modal-error-screen'>
+                          <div className='modal-error-container'>
                             <img src='./doge_error.png' alt='error img' />
                             <p>
                               Oh heck! The API is messing up, please close the
@@ -410,20 +309,13 @@ function Popup({
             </div>
             {loading ? (
               <div className='loader-container'>
-                {/* <BeatLoader
-                  // color={percSwitch > 0 ? '#08B089' : '#FF6384'}
-                  color={'#8189A7'}
-                  loading={loading}
-                  css={override}
-                  size={10}
-                /> */}
                 <div className='shimmer-wrapper'>
                   <div className='shimmer'></div>
                 </div>
               </div>
             ) : (
               <div className='chart-wrapper'>
-                <CoinChart
+                <Chart
                   className='chart'
                   priceData={chartPrice.flat()}
                   timeData={chartTime}
@@ -435,36 +327,36 @@ function Popup({
               </div>
             )}
           </div>
-          <div className='popup-coin-info-wrapper'>
+          <div className='modal-coin-info-wrapper'>
             <button onClick={handleClose}>
               <i id='close-btn' class='fas fa-times'></i>
             </button>
-            <div className='popup-coin-info-container'>
+            <div className='modal-coin-info-container'>
               {/* ------CAN MAKE REUSABLE COMPONENT------- */}
-              <div className='popup-coin-detail-container'>
-                <div className='popup-coin-detail-wrapper'>
+              <div className='modal-coin-detail-container'>
+                <div className='modal-coin-detail-wrapper'>
                   <span>24h Low / 24h High</span>${low24hCondition} / $
                   {high24hCondition}
                 </div>
               </div>
-              <div className='popup-coin-detail-container'>
-                <div className='popup-coin-detail-wrapper'>
+              <div className='modal-coin-detail-container'>
+                <div className='modal-coin-detail-wrapper'>
                   <span>Market Cap</span>${marketcap.toLocaleString()}
                 </div>
               </div>
-              <div className='popup-coin-detail-container'>
-                <div className='popup-coin-detail-wrapper'>
+              <div className='modal-coin-detail-container'>
+                <div className='modal-coin-detail-wrapper'>
                   <span>Volume</span>${volume.toLocaleString()}
                 </div>
               </div>
-              <div className='popup-coin-detail-container'>
-                <div className='popup-coin-detail-wrapper'>
+              <div className='modal-coin-detail-container'>
+                <div className='modal-coin-detail-wrapper'>
                   <span>Circulating Supply</span>
                   {supply.toLocaleString()} {symbol.toUpperCase()}
                 </div>
               </div>
-              <div className='popup-coin-detail-container'>
-                <div className='popup-coin-detail-wrapper'>
+              <div className='modal-coin-detail-container'>
+                <div className='modal-coin-detail-wrapper'>
                   <span>Market Rank</span>#{rank}
                 </div>
               </div>
@@ -476,4 +368,4 @@ function Popup({
   )
 }
 
-export default Popup
+export default Modal

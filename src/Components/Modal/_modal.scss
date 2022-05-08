@@ -15,22 +15,7 @@
   box-sizing: border-box;
 }
 
-.popup-background {
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: default;
-  z-index: 2;
-}
-
-.popup-wrapper {
+.modal-wrapper {
   position: relative;
   padding: 32px;
   background: var(--bc-primary);
@@ -43,7 +28,7 @@
   flex-direction: row;
 }
 
-.popup-name-chart-wrapper {
+.modal-name-chart-wrapper {
   flex-direction: column;
   padding-left: 1rem;
   background-color: var(--bc-primary);
@@ -52,20 +37,20 @@
   align-content: space-between;
 }
 
-.popup-img-container {
+.modal-img-container {
   display: flex;
   background-color: var(--bc-primary);
   justify-content: space-between;
   border-bottom: solid 1px rgb(60, 64, 67);
 }
 
-.popup-image-name-wrapper {
+.modal-image-name-wrapper {
   display: flex;
   flex-direction: row;
   background-color: var(--bc-primary);
 }
 
-.popup-image {
+.modal-image {
   width: 19px;
   height: 19px;
   background: var(--bc-primary);
@@ -73,7 +58,7 @@
   margin-right: 7px;
 }
 
-.popup-coin-name {
+.modal-coin-name {
   padding-bottom: 0.4rem;
   padding-right: 0.5rem;
   font-size: 1.5rem;
@@ -82,7 +67,7 @@
   color: var(--tc-primary);
 }
 
-.popup-coin-symbol {
+.modal-coin-symbol {
   /* background-color: rgb(50, 55, 65); */
   color: var(--tc-primary);
   /* padding: 2px 5px 2px 5px; */
@@ -94,7 +79,7 @@
   margin-left: 0.5rem;
 }
 
-.popup-header-details {
+.modal-header-details {
   padding-top: 0.6rem;
 }
 
@@ -114,7 +99,7 @@
   animation: fadein 0.1s;
 }
 
-.popup-price {
+.modal-price {
   background-color: var(--bc-primary);
   font-weight: 400;
   font-size: 2.5rem;
@@ -122,14 +107,14 @@
   padding-top: 0.8rem;
 }
 
-.popup-currency {
+.modal-currency {
   font-size: 1.2rem;
   font-weight: 300;
   color: var(--tc-secondary);
   background-color: var(--bc-primary);
 }
 
-.popup-pricechange {
+.modal-pricechange {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -174,17 +159,17 @@
   font-weight: 400;
 }
 
-.popup-price-change {
+.modal-price-change {
   background-color: var(--bc-primary);
   font-size: 1.1rem;
   padding-top: 5px;
 }
 
-.green-popup {
+.green-modal {
   color: var(--tc-green);
 }
 
-.red-popup {
+.red-modal {
   color: var(--tc-red);
 }
 
@@ -200,7 +185,7 @@
   font-size: 1rem;
 }
 
-.popup-coin-info-wrapper {
+.modal-coin-info-wrapper {
   width: 290px;
   height: 550px;
   margin-left: 2rem;
@@ -212,7 +197,7 @@
   padding-bottom: 1.7rem;
 }
 
-.popup-coin-info-container {
+.modal-coin-info-container {
   width: 275px;
   height: 340px;
   display: flex;
@@ -225,23 +210,23 @@
   align-self: flex-start;
 }
 
-.popup-coin-info-container > p,
+.modal-coin-info-container > p,
 div,
 span {
   background-color: transparent;
 }
 
-.popup-coin-detail-container {
+.modal-coin-detail-container {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: solid 1px var(--border);
 }
 
-.popup-coin-detail-container:last-child {
+.modal-coin-detail-container:last-child {
   border-bottom: none;
 }
 
-.popup-coin-detail-wrapper {
+.modal-coin-detail-wrapper {
   width: 235px;
   display: flex;
   flex-direction: column;
@@ -249,13 +234,13 @@ span {
   text-align: right;
 }
 
-.popup-coin-detail-wrapper > span {
+.modal-coin-detail-wrapper > span {
   margin-bottom: 0.2rem;
   color: var(--tc-primary);
   font-weight: 500;
 }
 
-.popup-coin-info-wrapper > button {
+.modal-coin-info-wrapper > button {
   border: none;
 }
 
@@ -310,7 +295,7 @@ span {
   }
 }
 
-.popup-error-screen {
+.modal-error-screen {
   width: 930px;
   height: 530px;
   z-index: 5;
@@ -322,7 +307,7 @@ span {
   justify-content: center;
 }
 
-.popup-error-container {
+.modal-error-container {
   width: 500px;
   height: 300px;
   display: flex;
@@ -332,11 +317,11 @@ span {
   padding-bottom: 6rem;
 }
 
-.popup-error-container > img {
+.modal-error-container > img {
   width: 130px;
 }
 
-.popup-error-container > p {
+.modal-error-container > p {
   font-family: 'Press Start 2P', cursive;
   font-size: 0.9rem;
   text-align: center;
@@ -344,34 +329,34 @@ span {
 }
 
 @media screen and (max-width: 1024px) {
-  .popup-wrapper {
+  .modal-wrapper {
     width: 700px;
     height: 580px;
     flex-direction: column;
   }
 
-  .popup-name-chart-wrapper {
+  .modal-name-chart-wrapper {
     padding-left: 0;
   }
 
-  .popup-coin-name {
+  .modal-coin-name {
     font-size: 1.2rem;
   }
 
-  .popup-image {
+  .modal-image {
     width: 16px;
     height: 16px;
   }
 
-  .popup-coin-symbol {
+  .modal-coin-symbol {
     font-size: 0.8rem;
   }
 
-  .popup-price {
+  .modal-price {
     font-size: 2rem;
   }
 
-  .popup-price-change {
+  .modal-price-change {
     font-size: 0.9rem;
   }
 
@@ -387,12 +372,12 @@ span {
     font-size: 0.8rem;
   }
 
-  .popup-header-details {
+  .modal-header-details {
     height: 118px;
     padding-top: 0;
   }
 
-  .popup-coin-symbol {
+  .modal-coin-symbol {
     padding-right: 2rem;
   }
 
@@ -400,7 +385,7 @@ span {
     margin-top: 0.5rem;
   }
 
-  .popup-coin-info-container {
+  .modal-coin-info-container {
     font-size: 0.9rem;
     flex-direction: column;
     background-color: transparent;
@@ -412,24 +397,24 @@ span {
     padding-left: 0.5rem;
   }
 
-  .popup-coin-info-wrapper {
+  .modal-coin-info-wrapper {
     margin-left: 0;
     align-self: flex-start;
     margin-top: 9.5rem;
     padding-bottom: 0;
   }
 
-  .popup-coin-detail-container {
+  .modal-coin-detail-container {
     border-bottom: 0;
     border-right: solid 1px rgb(60, 64, 67);
     padding: 0.5rem 0 0.5rem 1rem;
   }
 
-  .popup-coin-detail-container:last-child {
+  .modal-coin-detail-container:last-child {
     border-right: none;
   }
 
-  .popup-coin-detail-wrapper {
+  .modal-coin-detail-wrapper {
     width: 195px;
     /* height: 70px; */
     align-items: flex-start;
@@ -437,11 +422,11 @@ span {
     flex-direction: column;
   }
 
-  .popup-coin-detail-wrapper > span {
+  .modal-coin-detail-wrapper > span {
     padding-right: 0.5rem;
   }
 
-  .popup-coin-info-wrapper > button {
+  .modal-coin-info-wrapper > button {
     margin-right: -20.5rem;
     margin-top: -32.85rem;
     z-index: 5;
@@ -452,14 +437,14 @@ span {
     margin-top: 15px;
   }
 
-  .popup-error-screen {
+  .modal-error-screen {
     width: 650px;
     height: 550px;
   }
 }
 
 @media screen and (max-width: 705px), screen and (max-height: 590px) {
-  .popup-wrapper {
+  .modal-wrapper {
     width: 100vw;
     height: 100vh;
     /* min-height: 610px; */
@@ -473,20 +458,20 @@ span {
     overflow-x: hidden;
   }
 
-  .popup-name-chart-wrapper {
+  .modal-name-chart-wrapper {
     align-items: center;
     padding-bottom: 1rem;
   }
 
-  .popup-header-details {
+  .modal-header-details {
     width: 85vw;
   }
 
-  .popup-price {
+  .modal-price {
     font-size: 2.2rem;
   }
 
-  .popup-pricechange {
+  .modal-pricechange {
     flex-direction: column;
     height: 70px;
     /* padding-top: 0.5rem; */
@@ -496,7 +481,7 @@ span {
     margin-top: 2.6rem;
   }
 
-  .popup-price-change {
+  .modal-price-change {
     font-size: 1rem;
   }
 
@@ -520,7 +505,7 @@ span {
     margin-left: -5px;
   }
 
-  .popup-coin-info-wrapper {
+  .modal-coin-info-wrapper {
     margin-top: 0;
     width: 85vw;
     height: 50vh;
@@ -531,7 +516,7 @@ span {
     flex-direction: column-reverse;
   }
 
-  .popup-coin-info-container {
+  .modal-coin-info-container {
     flex-wrap: nowrap;
     height: 100%;
     /* margin-top: 32rem; */
@@ -541,17 +526,17 @@ span {
     /* scrollbar-width: none; */
   }
 
-  .popup-coin-detail-container {
+  .modal-coin-detail-container {
     border-right: 0;
     margin-top: 0;
     padding: 0 0 1rem 0;
   }
 
-  .popup-coin-detail-wrapper {
+  .modal-coin-detail-wrapper {
     width: 300px;
   }
 
-  .popup-coin-info-wrapper > button {
+  .modal-coin-info-wrapper > button {
     position: fixed;
     display: inline-flex;
     bottom: 0;
@@ -571,7 +556,7 @@ span {
     height: 24px;
   }
 
-  .popup-coin-symbol {
+  .modal-coin-symbol {
     padding-right: 0;
   }
 
@@ -582,13 +567,13 @@ span {
     margin-top: 3.12rem;
   }
 
-  .popup-error-screen {
+  .modal-error-screen {
     width: 90vw;
     height: 100vh;
     margin-left: -2.5vw;
   }
 
-  .popup-error-container {
+  .modal-error-container {
     width: 80vw;
   }
 }

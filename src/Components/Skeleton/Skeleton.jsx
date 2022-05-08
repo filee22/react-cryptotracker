@@ -1,7 +1,7 @@
 import React from 'react'
-import './CoinSkeleton.css'
+import './_skeleton.scss'
 
-const CoinSkeleton = () => {
+const Skeleton = () => {
   return (
     <div className='skeleton'>
       <div className='coin-loader'>
@@ -215,4 +215,4 @@ const CoinSkeleton = () => {
   )
 }
 
-export default CoinSkeleton
+export default Skeleton

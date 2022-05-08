@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Coin from './Coin'
-import './App.css'
+import Coin from './Components/Coin/Coin'
+import './App.scss'
 import PuffLoader from 'react-spinners/PuffLoader'
-import { css } from '@emotion/react'
-import CoinSkeleton from './CoinSkeleton'
+import Skeleton from './Components/Skeleton/Skeleton'
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -16,7 +15,6 @@ function App() {
   const [totalVolume, setTotalVolume] = useState([])
   const [dominance, setDominance] = useState([])
   const [pageId, setPageId] = useState(1)
-  const [allCoins, setAllCoins] = useState([])
 
   // ----------------- API FETCHING -----------------
   // ------- GET COINS -------
@@ -53,33 +51,7 @@ function App() {
       .catch((error) => console.log(error))
   }, [])
 
-  // useEffect(() => {
-  //   axios.get('https://api.coingecko.com/api/v3/coins/list').then((res) => {
-  //     setAllCoins(res.data.name)
-  //     console.log(res)
-  //   })
-  // })
-
-  // const searchedCoins = allCoins.filter((coin) =>
-  //   coin.toLowerCase().includes(searchInput.toLowerCase())
-  // )
-
-  // console.log(allCoins)
-
-  // const handleChange = (e) => {
-  //   setSearch(e.target.value)
-  //   console.log('text input')
-  // }
-
-  // const filteredCoins = coins.filter((coin) =>
-  //   coin.name.toLowerCase().includes(search.toLowerCase())
-  // )
-
-  // const handleChange = (e) => {
-  //   setResults(true)
-  //   setSearch(e.target.value)
-  // }
-
+  // NEXT & PREV PAGE
   const handleNextPage = () => {
     setPageId(pageId + 1)
     window.scrollTo({ top: 0 })
@@ -90,11 +62,7 @@ function App() {
     window.scrollTo({ top: 0 })
   }
 
-  // const override = css`
-  //   width: 2rem;
-  //   height: 2rem;
-  // `
-
+  // SET DOMINANCE DATA
   const dominanceData = Object.keys(dominance)
     .map((key) => ({
       id: String(key),
@@ -102,6 +70,7 @@ function App() {
     }))
     .slice(0, 3)
 
+  // SET SEARCH
   const handleChange = (e) => {
     setSearchInput(e.target.value)
   }
@@ -109,6 +78,7 @@ function App() {
   return (
     <div className='app'>
       <div className='app-container'>
+        {/* NAVBAR */}
         <div className='coin-search'>
           <div className='coin-search-container'>
             <input
@@ -193,8 +163,10 @@ function App() {
               </div>
             )}
           </div>
-          {/* <h1 className='coin-text'>Search a currency</h1> */}
         </div>
+        {/* NAVBAR--END */}
+        {/* /// */}
+        {/* COINS */}
         <div className='coin-app'>
           <div className='coin-data-label-cointainer'>
             <div className='coin-data-label-wrapper'>
@@ -209,11 +181,9 @@ function App() {
               </div>
             </div>
           </div>
-          {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-            <CoinSkeleton key={n} />
-          ))} */}
+
           {loading ? (
-            [1, 2, 3].map((n) => <CoinSkeleton key={n} />)
+            [1, 2, 3].map((n) => <Skeleton key={n} />)
           ) : (
             <div className='mapped-coins'>
               {coins.map((coin) => {
@@ -250,6 +220,7 @@ function App() {
             </div>
           )}
         </div>
+        {/* COINS--END */}
       </div>
     </div>
   )

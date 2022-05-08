@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from 'react'
 import { Chart, registerables } from 'chart.js'
-import './CoinChart.css'
+import './_coinChart.scss'
 
-function CoinChart({
+const CoinChart = ({
   priceData,
   timeData,
   name,
   pricePerc24h,
   priceCondition,
   percSwitch,
-}) {
+}) => {
   const chartRef = useRef()
 
   // Chart.register(...registerables)

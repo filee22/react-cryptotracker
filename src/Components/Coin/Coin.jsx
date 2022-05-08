@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import './Coin.css'
-import Popup from './Popup'
+import './_coin.scss'
+import Modal from '../Modal/Modal'
+import useClickOutside from '../../Hooks/useClickOutside'
+import useFormatNumdata from '../../Hooks/useFormatNumData'
 
-function Coin({
+const Coin = ({
   coinId,
   rank,
   name,
@@ -16,13 +18,17 @@ function Coin({
   supply,
   high24h,
   low24h,
-}) {
-  const [popup, setPopup] = useState(false)
+}) => {
+  const [modal, setModal] = useState(false)
 
-  // ---- OPEN POPUP ----
-  const openPopup = () => {
-    setPopup((prev) => !prev)
+  // ---- OPEN & CLOSE MODAL ----
+  const openModal = () => {
+    setModal((prev) => !prev)
   }
+
+  const closeModalOutside = useClickOutside(() => {
+    setModal(false)
+  })
 
   // ---- GET CURRENT PRICE AND FORMAT ----
   const currentPrice =
@@ -51,40 +57,14 @@ function Coin({
           maximumFractionDigits: 2,
         })
 
-  const priceChange = () => {
-    const priceCalc = (price * pricePerc24h) / (pricePerc24h + 100)
-    return (priceCalc < 1 && priceCalc >= 0.01) ||
-      (priceCalc > -1 && priceCalc <= -0.01)
-      ? priceCalc.toLocaleString(undefined, {
-          minimumFractionDigits: 4,
-          maximumFractionDigits: 4,
-        })
-      : (priceCalc < 0.01 && priceCalc >= 0.001) ||
-        (priceCalc > -0.01 && priceCalc <= -0.001)
-      ? priceCalc.toLocaleString(undefined, {
-          minimumFractionDigits: 6,
-          maximumFractionDigits: 6,
-        })
-      : (priceCalc < 0.001 && priceCalc >= 0.0001) ||
-        (priceCalc > -0.001 && priceCalc <= -0.0001)
-      ? priceCalc.toLocaleString(undefined, {
-          minimumFractionDigits: 7,
-          maximumFractionDigits: 7,
-        })
-      : priceCalc < 0.0001 && priceCalc > -0.0001
-      ? priceCalc.toLocaleString(undefined, {
-          minimumFractionDigits: 8,
-          maximumFractionDigits: 8,
-        })
-      : priceCalc.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })
-  }
+  // PRICE CHANGE FORMAT
+  const priceCalc = (price * pricePerc24h) / (pricePerc24h + 100)
+
+  const priceChange = useFormatNumdata(priceCalc, 1, 'unavailable')
 
   return (
     <div className='coin-container'>
-      <div className='coin-row' onClick={openPopup}>
+      <div className='coin-row' onClick={openModal}>
         <div className='coin'>
           <p className='coin-rank'>{rank}</p>
           <img src={image} alt='crypto' />
@@ -96,10 +76,10 @@ function Coin({
         <div className='coin-data'>
           <p className='coin-price'>${currentPrice}</p>
           <p className='coin-pricechange'>
-            {priceChange().charAt(0) == '-' ? (
-              <span className='red'>-${priceChange().substring(1)}</span>
+            {priceChange.charAt(0) == '-' ? (
+              <span className='red'>-${priceChange.substring(1)}</span>
             ) : (
-              <span className='green'>+${priceChange()}</span>
+              <span className='green'>+${priceChange}</span>
             )}
           </p>
           {pricePerc24h < 0 ? (
@@ -135,25 +115,29 @@ function Coin({
           <p className='coin-volume'>${volume.toLocaleString()}</p>
         </div>
       </div>
-      {popup ? (
-        <Popup
-          popup={popup}
-          coinId={coinId}
-          setPopup={setPopup}
-          name={name}
-          image={image}
-          price={price}
-          currentPrice={currentPrice}
-          pricePerc24h={pricePerc24h}
-          price24h={price24h}
-          marketcap={marketcap}
-          volume={volume}
-          supply={supply}
-          rank={rank}
-          symbol={symbol}
-          high24h={high24h}
-          low24h={low24h}
-        />
+      {modal ? (
+        <div className='modal--container'>
+          <div className='modal--wrapper' ref={closeModalOutside}>
+            <Modal
+              modal={modal}
+              coinId={coinId}
+              setModal={setModal}
+              name={name}
+              image={image}
+              price={price}
+              currentPrice={currentPrice}
+              pricePerc24h={pricePerc24h}
+              price24h={price24h}
+              marketcap={marketcap}
+              volume={volume}
+              supply={supply}
+              rank={rank}
+              symbol={symbol}
+              high24h={high24h}
+              low24h={low24h}
+            />
+          </div>
+        </div>
       ) : null}
     </div>
   )
