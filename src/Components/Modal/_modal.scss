@@ -545,15 +545,23 @@ span {
     /* margin-top: -22.95rem;
     margin-right: -0.2rem; */
     /* margin-top: -1rem; */
-    border: solid 2px var(--tc-secondary);
-    background-color: var(--bc-primary);
+    border: solid 2px var(--bc-primary);
+    background-color: var(--tc-secondary);
     padding: 0.5rem;
     border-radius: 2rem;
+    filter: drop-shadow(0 0.4rem 0.3rem rgba(0, 0, 0, 0.2));
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   #close-btn {
     width: 24px;
     height: 24px;
+    background-color: var(--tc-secondary);
+    color: var(--bc-primary);
+    -webkit-text-stroke: 1px var(--tc-secondary);
   }
 
   .modal-coin-symbol {

@@ -11,11 +11,11 @@
   height: 70px;
   border-bottom: 1px solid rgb(54, 56, 59);
   width: 1000px;
-}
 
-.coin-row:hover {
-  cursor: pointer;
-  background-color: rgb(39, 40, 44);
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(39, 40, 44);
+  }
 }
 
 .coin {

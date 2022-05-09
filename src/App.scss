@@ -244,10 +244,10 @@ html {
   border: none;
   font-size: 1rem;
   background-color: rgb(32, 33, 36);
-}
 
-.pageButtonsWrapper > button:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .pageNumber {
