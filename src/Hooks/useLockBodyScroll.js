@@ -10,6 +10,6 @@ export default function useLockBodyScroll() {
       // re-enable scrolling when component unmounts
       return () => (document.body.style.overflow = originalStyle)
     },
-    [] //empty array to ensure effect is only run when mount and unmount
+    [] // empty array to ensure effect is only run when mount and unmount
   )
 }
