@@ -1,6 +1,6 @@
 {
-  "homepage": "https://filee22.github.io/react_cryptotracker",
-  "name": "react_cryptotracker",
+  "homepage": "https://filee22.github.io/react-cryptotracker",
+  "name": "react-cryptotracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
