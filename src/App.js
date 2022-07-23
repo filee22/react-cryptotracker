@@ -16,6 +16,7 @@ function App() {
   const [dominance, setDominance] = useState([])
   const [pageId, setPageId] = useState(1)
 
+  // TEST
   // ----------------- API FETCHING -----------------
   // ------- GET COINS -------
   useEffect(() => {
