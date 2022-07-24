@@ -1,0 +1,131 @@
+.coin-input {
+  padding-left: 16px;
+  width: 380px;
+  height: 40px;
+  border-radius: 2rem;
+  border: none;
+  /* border-bottom: solid 2px rgb(48, 54, 61); */
+  /* background-image: linear-gradient(
+      -225deg,
+      #ac32e4 0%,
+      #7918f2 48%,
+      #4801ff 100%
+    ); */
+  background-color: rgb(48, 49, 52);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #e2e2e2;
+  z-index: 2;
+  position: absolute;
+}
+
+.coin-input::placeholder {
+  color: rgb(100, 112, 124);
+}
+
+.coin-input:focus {
+  outline: 0;
+}
+
+.results-box {
+  width: 380px;
+  //   height: 280px;
+  padding-bottom: 10px;
+  background-color: rgb(48, 49, 52);
+  border-radius: 1.5rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-items: flex-start;
+  z-index: 1;
+  flex-direction: column;
+}
+
+.result-field-wrapper {
+  width: 380px;
+  height: 41px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.result-field {
+  width: 360px;
+  height: 1px;
+  background-color: rgb(96, 97, 99);
+  position: relative;
+}
+
+.search-error-container {
+  position: absolute;
+  padding-top: 5rem;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-error-container > img {
+  width: 90px;
+}
+
+.search-error-container > p {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+.search-loader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 200px;
+  margin-top: 0.5rem;
+  background-color: rgb(48, 49, 52);
+  animation: searchAnimation 0s ease-in 1s forwards;
+}
+
+.results-test {
+  width: 100%;
+}
+
+@keyframes searchAnimation {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .coin-input {
+    width: 250px;
+  }
+
+  .results-box {
+    width: 250px;
+    height: 260px;
+  }
+
+  .result-field {
+    width: 230px;
+  }
+
+  .search-loader {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 705px) {
+  .coin-input {
+    margin-left: 1rem;
+  }
+
+  .results-box {
+    margin-left: 1rem;
+  }
+}
