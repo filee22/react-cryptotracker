@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Coin from './Components/Coin/Coin'
 import './App.scss'
-import PuffLoader from 'react-spinners/PuffLoader'
 import Skeleton from './Components/Skeleton/Skeleton'
+import Search from './Components/Search/Search'
 
 function App() {
   const [loading, setLoading] = useState(false)
   const [globalLoading, setGlobalLoading] = useState(false)
   const [coins, setCoins] = useState([])
-  const [searchInput, setSearchInput] = useState('')
   const [activeCoins, setActiveCoins] = useState([])
   const [totalMarketCap, setTotalMarketCap] = useState([])
   const [totalVolume, setTotalVolume] = useState([])
@@ -71,46 +70,13 @@ function App() {
     }))
     .slice(0, 3)
 
-  // SET SEARCH
-  const handleChange = (e) => {
-    setSearchInput(e.target.value)
-  }
-
   return (
     <div className='app'>
       <div className='app-container'>
         {/* NAVBAR */}
-        <div className='coin-search'>
-          <div className='coin-search-container'>
-            <input
-              type='text'
-              placeholder='Search'
-              className='coin-input'
-              id='inputName'
-              autocomplete='off'
-              onChange={handleChange}
-            />
-            {searchInput !== '' ? (
-              <div className='results-box'>
-                <div className='result-field-wrapper'>
-                  <div className='result-field'>
-                    {/* {searchedCoins.slice(0, 3)} */}
-                  </div>
-                </div>
-                <div className='search-loader'>
-                  <PuffLoader
-                    color={'#8189A7'}
-                    // loading={searchLoading}
-                    // css={override}
-                    size={50}
-                  />
-                </div>
-                <div className='search-error-container'>
-                  <img src='./doge_error.png' alt='error img' />
-                  <p>Oh heck! The search bar is not working yet!</p>
-                </div>
-              </div>
-            ) : null}
+        <div className='app-navbar'>
+          <div className='app-navbar-container'>
+            <Search />
             {globalLoading ? (
               <div className='global-loader'>
                 <div className='global-loader-container1'>
@@ -155,7 +121,7 @@ function App() {
                   <div className='dominance-wrapper'>
                     Dominance:{' '}
                     {dominanceData.map((coin) => (
-                      <span>
+                      <span key={coin.id}>
                         {coin.id.toUpperCase()}: {coin.value.toFixed(1)}%
                       </span>
                     ))}
