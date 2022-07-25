@@ -6,6 +6,7 @@ import axios from 'axios'
 import { css } from '@emotion/react'
 import useLockBodyScroll from '../../Hooks/useLockBodyScroll'
 import useFormatNumdata from '../../Hooks/useFormatNumData'
+import { PuffLoader } from 'react-spinners'
 
 const Modal = (props) => {
   const [chartPrice, setChartPrice] = useState([])
@@ -330,7 +331,9 @@ const Modal = (props) => {
       <div className='modal-background'>
         <div className='modal-wrapper'>
           {loading ? (
-            <div className='temp-loader'>loading</div>
+            <div className='temp-loader'>
+              <PuffLoader color={'#8189A7'} size={50} />
+            </div>
           ) : (
             <>
               <div className='modal-name-chart-wrapper'>
@@ -344,9 +347,22 @@ const Modal = (props) => {
                         alt='crypto-image'
                       />
                     </div>
-                    <p className='modal-coin-symbol'>
-                      <span>Abbr:</span> {coinData.symbol.toUpperCase()}
-                    </p>
+                    <span className='modal-coin-symbol'>
+                      <span className='modal-rank-mobile-wrapper'>
+                        Rank:{' '}
+                        <span className='modal-rank-mobile'>
+                          {' '}
+                          #{coinData.market_data.market_cap_rank}
+                        </span>{' '}
+                        /{' '}
+                      </span>
+                      <span className='modal-abbr-mobile-wrapper'>
+                        <span>Abbr:</span>{' '}
+                        <span className='modal-abbr-mobile'>
+                          {coinData.symbol.toUpperCase()}
+                        </span>
+                      </span>
+                    </span>
                   </div>
                   <div className='modal-price-container'>
                     <div className='modal-price-wrapper'>

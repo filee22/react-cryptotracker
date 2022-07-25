@@ -77,6 +77,8 @@
   /* font-weight: 500; */
   /* margin-bottom: 12px; */
   margin-left: 0.5rem;
+  // display: flex;
+  display: inline-block;
 }
 
 .modal-header-details {
@@ -328,6 +330,22 @@ span {
   margin-top: -0.5rem;
 }
 
+.temp-loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-rank-mobile-wrapper {
+  display: none;
+}
+
+.modal-abbr-mobile {
+  color: white;
+}
+
 @media screen and (max-width: 1024px) {
   .modal-wrapper {
     width: 700px;
@@ -530,6 +548,10 @@ span {
     border-right: 0;
     margin-top: 0;
     padding: 0 0 1rem 0;
+
+    &:last-child {
+      display: none;
+    }
   }
 
   .modal-coin-detail-wrapper {
@@ -583,5 +605,17 @@ span {
 
   .modal-error-container {
     width: 80vw;
+  }
+
+  .modal-rank-mobile-wrapper {
+    display: inline;
+  }
+
+  .modal-rank-mobile {
+    color: white;
+  }
+
+  .modal-abbr-mobile {
+    color: white;
   }
 }
