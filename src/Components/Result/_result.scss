@@ -4,8 +4,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
-  padding: 15px;
+  //   height: 40px;
+  padding: 7px 15px 7px 15px;
+  //   margin: 10px 0 10px 0;
 
   &:hover {
     cursor: pointer;
@@ -38,4 +39,23 @@
 .result-rank {
   font-size: 12px;
   font-weight: 500;
+}
+
+.modal--container {
+  position: fixed;
+  z-index: 10;
+}
+
+@media screen and (max-width: 705px) {
+  .result-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    height: 50px;
+    border-bottom: solid 1px rgb(60, 64, 67);
+
+    &:hover {
+      cursor: pointer;
+      background-color: transparent;
+    }
+  }
 }
