@@ -340,24 +340,29 @@ const Modal = (props) => {
                 <div className='modal-header-details'>
                   <div className='modal-img-container'>
                     <div className='modal-image-name-wrapper'>
-                      <p className='modal-coin-name'>{coinData.name}</p>
-                      <img
-                        className='modal-image'
-                        src={coinData.image.thumb}
-                        alt='crypto-image'
-                      />
+                      <div className='modal-coin-name'>
+                        {coinData.name}{' '}
+                        <span className='modal-abbr-title'>
+                          / {coinData.symbol.toUpperCase()}{' '}
+                        </span>
+                        <img
+                          className='modal-image'
+                          src={coinData.image.thumb}
+                          alt='crypto-image'
+                        />
+                      </div>
                     </div>
                     <span className='modal-coin-symbol'>
                       <span className='modal-rank-mobile-wrapper'>
-                        Rank:{' '}
+                        {/* Rank:{' '} */}
                         <span className='modal-rank-mobile'>
                           {' '}
                           #{coinData.market_data.market_cap_rank}
                         </span>{' '}
-                        /{' '}
+                        {/* /{' '} */}
                       </span>
                       <span className='modal-abbr-mobile-wrapper'>
-                        <span>Abbr:</span>{' '}
+                        <span className='modal-abbr-text'>Abbr:</span>{' '}
                         <span className='modal-abbr-mobile'>
                           {coinData.symbol.toUpperCase()}
                         </span>
@@ -379,15 +384,12 @@ const Modal = (props) => {
                               : 'modal-price-change red-modal'
                           }
                         >
-                          {/* {percSwitch > 0 ? '+' : '-'} */}
+                          {/* percSwitch == undefined causes crashing */}
                           {percSwitch > 0 ? (
-                            <span className='price-positive'>
-                              +{priceCondition()}
-                            </span>
+                            <i class='fas fa-arrow-up' id='arrow-up'></i>
                           ) : (
-                            priceCondition()
+                            <i class='fas fa-arrow-down' id='arrow-down'></i>
                           )}{' '}
-                          ({/* percSwitch == undefined causes crashing */}
                           {percSwitch == null || percSwitch == undefined ? (
                             <div className='modal-error-screen'>
                               <div className='modal-error-container'>
@@ -409,14 +411,20 @@ const Modal = (props) => {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2,
                               })
-                              .substr(1, 4)
+                              .substring(1, 5)
                           )}
-                          %){' '}
+                          % {/* {percSwitch > 0 ? '+' : '-'} */}(
                           {percSwitch > 0 ? (
-                            <i class='fas fa-arrow-up' id='arrow-up'></i>
+                            <span className='price-positive'>
+                              +${priceCondition()}
+                            </span>
                           ) : (
-                            <i class='fas fa-arrow-down' id='arrow-down'></i>
-                          )}{' '}
+                            // priceCondition()
+                            priceCondition().substring(0, 1) +
+                            '$' +
+                            priceCondition().substring(1)
+                          )}
+                          ){' '}
                           {daysData == 1
                             ? 'past 24h'
                             : daysData == 7

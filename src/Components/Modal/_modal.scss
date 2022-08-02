@@ -346,6 +346,10 @@ span {
   color: white;
 }
 
+.modal-abbr-title {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .modal-wrapper {
     width: 700px;
@@ -483,6 +487,7 @@ span {
 
   .modal-header-details {
     width: 85vw;
+    height: auto;
   }
 
   .modal-price {
@@ -495,8 +500,12 @@ span {
     /* padding-top: 0.5rem; */
   }
 
+  .modal-image {
+    margin-bottom: -2px;
+  }
+
   .chart-wrapper {
-    margin-top: 2.6rem;
+    // margin-top: 2.6rem;
   }
 
   .modal-price-change {
@@ -594,7 +603,8 @@ span {
     width: 88vw;
     height: 28vh;
     min-height: 227.8px;
-    margin-top: 3.12rem;
+    // margin-top: 3.12rem;
+    margin-top: 16px;
   }
 
   .modal-error-screen {
@@ -609,13 +619,26 @@ span {
 
   .modal-rank-mobile-wrapper {
     display: inline;
+    // display: none;
   }
 
   .modal-rank-mobile {
-    color: white;
+    color: var(--tc-secondary);
+  }
+
+  .modal-abbr-text {
+    display: none;
   }
 
   .modal-abbr-mobile {
     color: white;
+    color: var(--tc-secondary);
+    font-weight: 500;
+    display: none;
+  }
+
+  .modal-abbr-title {
+    display: inline;
+    font-size: 16px;
   }
 }
